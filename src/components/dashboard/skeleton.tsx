@@ -1,0 +1,25 @@
+import { cn } from '@/lib/utils'
+
+/**
+ * Shared skeleton primitive — a pulsing slate block sized to whatever
+ * container it's dropped into. Used by every dashboard widget while
+ * its data fetches.
+ */
+export function Skeleton({ className }: { className?: string }) {
+  return <div className={cn('animate-pulse rounded-md bg-slate-200', className)} />
+}
+
+export function SkeletonCard({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        'rounded-2xl border border-slate-200 bg-white p-6 shadow-sm',
+        className,
+      )}
+    >
+      <Skeleton className="h-4 w-32" />
+      <Skeleton className="mt-4 h-8 w-20" />
+      <Skeleton className="mt-2 h-3 w-16" />
+    </div>
+  )
+}

@@ -1,0 +1,137 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useAuth } from "@/hooks/use-auth";
+import { LogOut, Menu, Settings as SettingsIcon, User } from "lucide-react";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const pageTitles: Record<string, string> = {
+  "/dashboard": "Dashboard",
+  "/inbox": "Inbox",
+  "/contacts": "Contacts",
+  "/pipelines": "Pipelines",
+  "/broadcasts": "Broadcasts",
+  "/automations": "Automations",
+  "/settings": "Settings",
+};
+
+function getPageTitle(pathname: string): string {
+  if (pageTitles[pathname]) return pageTitles[pathname];
+  const match = Object.entries(pageTitles).find(([path]) =>
+    pathname.startsWith(path),
+  );
+  return match ? match[1] : "Dashboard";
+}
+
+interface HeaderProps {
+  /** Wired to the shell's drawer state. Used only on mobile — the
+   *  hamburger button is hidden on lg+. */
+  onOpenSidebar?: () => void;
+}
+
+export function Header({ onOpenSidebar }: HeaderProps) {
+  const pathname = usePathname();
+  const { profile, signOut } = useAuth();
+  const title = getPageTitle(pathname);
+
+  const initial =
+    profile?.full_name?.charAt(0)?.toUpperCase() ??
+    profile?.email?.charAt(0)?.toUpperCase() ??
+    "U";
+
+  return (
+    <header className="flex h-16 shrink-0 items-center justify-between gap-3 bg-transparent px-4 lg:px-6">
+      <div className="flex min-w-0 items-center gap-2">
+        {/* Hamburger — mobile only. 44×44 hit target per Apple HIG. */}
+        <button
+          type="button"
+          onClick={onOpenSidebar}
+          aria-label="Open menu"
+          className="flex h-10 w-10 items-center justify-center rounded-md text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 lg:hidden"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+
+      </div>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger
+          className="flex items-center gap-2 rounded-md px-1 py-1 transition-colors hover:bg-slate-50 focus:bg-slate-50 focus:outline-none data-[state=open]:bg-slate-50 sm:gap-3 sm:pl-1 sm:pr-3"
+          aria-label="Open account menu"
+        >
+          <Avatar className="size-8 border border-slate-200">
+            {profile?.avatar_url ? (
+              <AvatarImage
+                src={profile.avatar_url}
+                alt={profile.full_name ?? "Avatar"}
+              />
+            ) : null}
+            <AvatarFallback className="bg-blue-50 text-sm font-bold text-blue-700">
+              {initial}
+            </AvatarFallback>
+          </Avatar>
+          <span className="hidden text-sm font-bold text-slate-900 sm:inline">
+            {profile?.full_name ?? "User"}
+          </span>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          align="end"
+          sideOffset={6}
+          className="min-w-56 bg-white text-slate-700 ring-slate-200 border-slate-200 rounded-xl shadow-lg p-1"
+        >
+          <div className="px-2 py-1.5">
+            <p className="truncate text-sm font-bold text-slate-900">
+              {profile?.full_name ?? "User"}
+            </p>
+            <p className="truncate text-xs font-medium text-slate-500">
+              {profile?.email ?? ""}
+            </p>
+          </div>
+          <DropdownMenuSeparator className="bg-slate-100 my-1" />
+          <DropdownMenuItem
+            render={
+              <Link
+                href="/settings?tab=profile"
+                className="text-slate-700 font-medium focus:bg-slate-100 focus:text-slate-900 rounded-lg cursor-pointer"
+              />
+            }
+          >
+            <User className="size-4" />
+            Profile
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            render={
+              <Link
+                href="/settings?tab=whatsapp"
+                className="text-slate-700 font-medium focus:bg-slate-100 focus:text-slate-900 rounded-lg cursor-pointer"
+              />
+            }
+          >
+            <SettingsIcon className="size-4" />
+            Settings
+          </DropdownMenuItem>
+          <DropdownMenuSeparator className="bg-slate-100 my-1" />
+          <DropdownMenuItem
+            onClick={signOut}
+            className="text-slate-700 font-medium focus:bg-slate-100 focus:text-slate-900 rounded-lg cursor-pointer"
+          >
+            <LogOut className="size-4" />
+            Sign out
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </header>
+  );
+}
