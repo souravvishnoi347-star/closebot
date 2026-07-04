@@ -1,10 +1,9 @@
 import { createClient } from '@/lib/supabase/server';
-import { cookies } from 'next/headers';
 
 export const dynamic = 'force-dynamic';
 
 export default async function DebugPage() {
-  const supabase = createClient(cookies());
+  const supabase = await createClient();
   
   const { data: configs } = await supabase.from('whatsapp_config').select('*');
   const { data: conversations } = await supabase.from('conversations').select('*');
