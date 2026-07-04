@@ -346,6 +346,7 @@ export function WhatsAppConfig() {
                 placeholder="e.g. 100234567890123"
                 value={phoneNumberId}
                 onChange={(e) => setPhoneNumberId(e.target.value)}
+                autoComplete="off"
                 className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400"
               />
             </div>
@@ -356,6 +357,7 @@ export function WhatsAppConfig() {
                 placeholder="e.g. 100234567890456"
                 value={wabaId}
                 onChange={(e) => setWabaId(e.target.value)}
+                autoComplete="off"
                 className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400"
               />
             </div>
@@ -367,6 +369,7 @@ export function WhatsAppConfig() {
                   type={showToken ? 'text' : 'password'}
                   placeholder="Enter your access token"
                   value={accessToken}
+                  autoComplete="new-password"
                   onChange={(e) => {
                     setAccessToken(e.target.value);
                     setTokenEdited(true);
@@ -400,6 +403,7 @@ export function WhatsAppConfig() {
                 placeholder="Create a custom verify token"
                 value={verifyToken}
                 onChange={(e) => setVerifyToken(e.target.value)}
+                autoComplete="off"
                 className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400"
               />
               <p className="text-xs text-slate-500">
