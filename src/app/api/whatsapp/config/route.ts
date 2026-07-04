@@ -201,11 +201,12 @@ export async function POST(request: Request) {
       encryptedVerifyToken = verify_token ? encrypt(verify_token) : null
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Unknown encryption error'
+      const keyLength = process.env.ENCRYPTION_KEY ? process.env.ENCRYPTION_KEY.length : 0
       console.error('Encryption failed:', message)
       return NextResponse.json(
         {
           error:
-            'Failed to encrypt token. Check that ENCRYPTION_KEY is a valid 64-character hex string in your environment variables.',
+            `Failed to encrypt token. Error: ${message}. Server sees ENCRYPTION_KEY length: ${keyLength}. Check your environment variables.`,
         },
         { status: 500 }
       )
