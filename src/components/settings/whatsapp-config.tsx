@@ -43,6 +43,7 @@ export function WhatsAppConfig() {
   const [testing, setTesting] = useState(false);
   const [resetting, setResetting] = useState(false);
   const [showToken, setShowToken] = useState(false);
+  const [initialFetchDone, setInitialFetchDone] = useState(false);
   const [config, setConfig] = useState<WhatsAppConfigType | null>(null);
   const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>('unknown');
   const [resetReason, setResetReason] = useState<ResetReason>(null);
@@ -127,8 +128,10 @@ export function WhatsAppConfig() {
       setLoading(false);
       return;
     }
-    fetchConfig(user.id);
-  }, [authLoading, user, fetchConfig]);
+    if (!initialFetchDone) {
+      fetchConfig(user.id).then(() => setInitialFetchDone(true));
+    }
+  }, [authLoading, user, fetchConfig, initialFetchDone]);
 
   async function handleSave() {
     if (!phoneNumberId.trim()) {
