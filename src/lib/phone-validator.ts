@@ -34,7 +34,7 @@ const VIRTUAL_PREFIXES = [
  * Known temp-SMS website numbers. These rotate, so this list is a
  * best-effort snapshot. Update periodically.
  */
-const KNOWN_TEMP_NUMBERS = new Set([
+const KNOWN_TEMP_NUMBERS = new Set<string>([
   // Add specific numbers found on receive-sms-free.cc, sms24.me, etc.
   // e.g. '+14155552671',
 ])
