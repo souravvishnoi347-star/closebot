@@ -134,7 +134,7 @@ export function ContactSidebar({ contact }: ContactSidebarProps) {
           </div>
           <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-white/20">
             <p className="text-sm text-indigo-50 leading-relaxed">
-              <strong>Suggested Reply:</strong> "Hi there! Let me check on that for you."
+              <strong>Suggested Reply:</strong> &quot;Hi there! Let me check on that for you.&quot;
             </p>
             <div className="mt-3 flex gap-2">
               <button className="flex-1 bg-white text-indigo-600 px-3 py-1.5 rounded-lg text-sm font-semibold hover:bg-indigo-50 transition-colors shadow-sm">Use</button>

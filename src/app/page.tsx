@@ -221,12 +221,12 @@ export default function RootPage() {
                     <Bot className="w-7 h-7" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3 text-slate-800">AI Auto-Replies</h3>
-                  <p className="text-slate-600 leading-relaxed">Our AI doesn't just chat; it qualifies. It understands intent, answers FAQs, and books meetings directly into your calendar 24/7.</p>
+                  <p className="text-slate-600 leading-relaxed">Our AI doesn&apos;t just chat; it qualifies. It understands intent, answers FAQs, and books meetings directly into your calendar 24/7.</p>
                 </div>
                 <div className="flex-1 bg-slate-50 rounded-xl p-5 border border-slate-100 flex items-center justify-center">
                   <div className="flex flex-col gap-4 w-full">
                     <div className="bg-white p-3.5 rounded-2xl rounded-bl-none shadow-sm max-w-[85%] text-sm border border-slate-100 text-slate-700">
-                      Hi! I'm interested in your pricing for agencies.
+                      Hi! I&apos;m interested in your pricing for agencies.
                     </div>
                     <div className="bg-blue-600 text-white p-3.5 rounded-2xl rounded-br-none shadow-sm max-w-[85%] self-end text-sm">
                       <div className="flex items-center gap-1.5 mb-1.5 opacity-90">
@@ -245,7 +245,7 @@ export default function RootPage() {
                   <Kanban className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-slate-800">Visual Pipelines</h3>
-                <p className="text-slate-600 mb-8 leading-relaxed">Track every deal's progress with a drag-and-drop interface that keeps your team aligned.</p>
+                <p className="text-slate-600 mb-8 leading-relaxed">Track every deal&apos;s progress with a drag-and-drop interface that keeps your team aligned.</p>
                 <div className="flex gap-2.5">
                   <div className="h-2.5 w-1/3 bg-blue-600 rounded-full"></div>
                   <div className="h-2.5 w-1/3 bg-slate-200 rounded-full"></div>
@@ -265,7 +265,7 @@ export default function RootPage() {
                 <div className="flex flex-wrap gap-4 items-center justify-center bg-slate-50 p-6 rounded-xl border border-slate-100 flex-1 w-full md:w-auto">
                   <div className="px-4 py-2 bg-white rounded-full border border-slate-200 flex items-center gap-2 text-sm font-semibold text-slate-700 shadow-sm">
                     <Tag className="w-4 h-4 text-blue-600" />
-                    Tag: "Hot Lead"
+                    Tag: &quot;Hot Lead&quot;
                   </div>
                   <ArrowRight className="w-5 h-5 text-slate-400" />
                   <div className="px-4 py-2 bg-white rounded-full border border-slate-200 flex items-center gap-2 text-sm font-semibold text-slate-700 shadow-sm">
@@ -415,7 +415,7 @@ export default function RootPage() {
                     <Star className="w-5 h-5 fill-amber-400" />
                     <Star className="w-5 h-5 fill-amber-400" />
                   </div>
-                  <p className="text-slate-700 italic mb-8 text-lg">"Closebot turned our WhatsApp from a mess into a machine. We qualify patients before they even walk in."</p>
+                  <p className="text-slate-700 italic mb-8 text-lg">&quot;Closebot turned our WhatsApp from a mess into a machine. We qualify patients before they even walk in.&quot;</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-lg">SL</div>
@@ -436,7 +436,7 @@ export default function RootPage() {
                     <Star className="w-5 h-5 fill-amber-400" />
                     <Star className="w-5 h-5 fill-amber-400" />
                   </div>
-                  <p className="text-slate-700 italic mb-8 text-lg">"The AI auto-replies are a game-changer. I don't lose leads to slow response times anymore."</p>
+                  <p className="text-slate-700 italic mb-8 text-lg">&quot;The AI auto-replies are a game-changer. I don&apos;t lose leads to slow response times anymore.&quot;</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-lg">MR</div>
@@ -457,7 +457,7 @@ export default function RootPage() {
                     <Star className="w-5 h-5 fill-amber-400" />
                     <Star className="w-5 h-5 fill-amber-400" />
                   </div>
-                  <p className="text-slate-700 italic mb-8 text-lg">"Finally, a CRM that actually works with WhatsApp. The lifetime deal paid for itself in a week."</p>
+                  <p className="text-slate-700 italic mb-8 text-lg">&quot;Finally, a CRM that actually works with WhatsApp. The lifetime deal paid for itself in a week.&quot;</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-lg">EV</div>

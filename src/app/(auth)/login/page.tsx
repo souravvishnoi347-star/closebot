@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { MessageSquare } from "lucide-react";
+import { SocialLoginButtons } from "@/components/auth/social-login-buttons";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -22,7 +23,11 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
   const supabase = createClient();
+
+  // Show error from OAuth callback failure
+  const authError = searchParams.get("error");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,6 +61,28 @@ export default function LoginPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {/* OAuth error banner */}
+          {authError === "auth" && (
+            <div className="mb-4 rounded-lg border border-destructive/20 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+              Authentication failed. Please try again.
+            </div>
+          )}
+
+          {/* Social Login */}
+          <SocialLoginButtons />
+
+          {/* Divider */}
+          <div className="relative my-5">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-border" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-card px-2 text-muted-foreground">
+                or continue with email
+              </span>
+            </div>
+          </div>
+
           <form onSubmit={handleLogin} className="flex flex-col gap-4">
             {error && (
               <div className="rounded-lg border border-destructive/20 bg-destructive/10 px-4 py-3 text-sm text-destructive">

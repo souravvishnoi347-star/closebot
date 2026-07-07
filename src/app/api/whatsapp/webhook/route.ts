@@ -162,20 +162,10 @@ export async function POST(request: Request) {
   const rawBody = await request.text()
   const signature = request.headers.get('x-hub-signature-256')
 
-  // ===== TEMPORARY DEBUG LOGGING =====
-  console.log('[webhook-debug] POST received at', new Date().toISOString())
-  console.log('[webhook-debug] Has signature header:', !!signature)
-  console.log('[webhook-debug] META_APP_SECRET set:', !!process.env.META_APP_SECRET)
-  console.log('[webhook-debug] META_APP_SECRET length:', process.env.META_APP_SECRET?.length ?? 0)
-  console.log('[webhook-debug] Body preview:', rawBody.substring(0, 500))
-  // ===== END DEBUG LOGGING =====
-
-  // Temporarily skip signature verification for debugging.
-  // TODO: Re-enable after confirming messages flow end-to-end.
-  const sigValid = verifyMetaWebhookSignature(rawBody, signature)
-  console.log('[webhook-debug] Signature valid:', sigValid)
-  if (!sigValid) {
-    console.warn('[webhook-debug] Signature FAILED — but processing anyway for debugging')
+  // Verify Meta webhook signature for security
+  if (!verifyMetaWebhookSignature(rawBody, signature)) {
+    console.error('[webhook] Invalid signature — rejecting request')
+    return NextResponse.json({ error: 'Invalid signature' }, { status: 403 })
   }
 
   let body: { entry?: WhatsAppWebhookEntry[] }
@@ -185,23 +175,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
   }
 
-  console.log('[webhook-debug] Entries count:', body.entry?.length ?? 0)
-  if (body.entry) {
-    for (const entry of body.entry) {
-      for (const change of entry.changes) {
-        console.log('[webhook-debug] Change field:', change.field)
-        console.log('[webhook-debug] Messages:', JSON.stringify(change.value.messages?.length ?? 0))
-        console.log('[webhook-debug] Statuses:', JSON.stringify(change.value.statuses?.length ?? 0))
-        console.log('[webhook-debug] phone_number_id:', change.value.metadata?.phone_number_id)
-      }
-    }
-  }
-
-  // Process the webhook (even if signature failed, for debugging)
   try {
     await processWebhook(body)
   } catch (error) {
-    console.error('[webhook-debug] Error processing webhook:', error)
+    console.error('[webhook] Error processing webhook:', error)
   }
 
   return NextResponse.json({ status: 'received' }, { status: 200 })
@@ -238,7 +215,7 @@ async function processWebhook(body: { entry?: WhatsAppWebhookEntry[] }) {
 
       if (configError) {
         console.error(
-          '[webhook-debug] ERROR fetching whatsapp_config for phone_number_id:',
+          '[webhook] fetching whatsapp_config for phone_number_id:',
           phoneNumberId,
           configError
         )
@@ -246,13 +223,13 @@ async function processWebhook(body: { entry?: WhatsAppWebhookEntry[] }) {
       }
 
       if (!configRows || configRows.length === 0) {
-        console.error('[webhook-debug] ERROR: No config found for phone_number_id:', phoneNumberId)
+        console.error('[webhook] No config found for phone_number_id:', phoneNumberId)
         continue
       }
 
       if (configRows.length > 1) {
         console.error(
-          `[webhook-debug] ERROR: Multiple configs (${configRows.length}) found for phone_number_id:`,
+          `[webhook] Multiple configs (${configRows.length}) found for phone_number_id:`,
           phoneNumberId,
           '— inbound message dropped. Resolve duplicates so each number maps to a single user.',
           'Owners:',
@@ -598,7 +575,7 @@ async function processMessage(
   })
 
   if (msgError) {
-    console.error('[webhook-debug] ERROR inserting message:', msgError)
+    console.error('[webhook] inserting message:', msgError)
     return
   }
 
@@ -614,7 +591,7 @@ async function processMessage(
     .eq('id', conversation.id)
 
   if (convError) {
-    console.error('[webhook-debug] Error updating conversation:', convError)
+    console.error('[webhook] updating conversation:', convError)
   }
 
   // If this contact was a recent broadcast recipient, flag the reply
@@ -867,7 +844,7 @@ async function findOrCreateContact(
     .eq('user_id', userId)
 
   if (contactsError) {
-    console.error('[webhook-debug] ERROR fetching contacts:', contactsError)
+    console.error('[webhook] fetching contacts:', contactsError)
     return null
   }
 
@@ -897,7 +874,7 @@ async function findOrCreateContact(
     .single()
 
   if (createError) {
-    console.error('[webhook-debug] ERROR creating contact:', createError)
+    console.error('[webhook] creating contact:', createError)
     return null
   }
 
@@ -928,7 +905,7 @@ async function findOrCreateConversation(userId: string, contactId: string) {
     .single()
 
   if (createError) {
-    console.error('[webhook-debug] ERROR creating conversation:', createError)
+    console.error('[webhook] creating conversation:', createError)
     return null
   }
 

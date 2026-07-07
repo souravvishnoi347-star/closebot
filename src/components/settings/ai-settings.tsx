@@ -9,7 +9,7 @@ export function AISettings() {
       <div>
         <h1 className="font-bold text-2xl text-slate-900 tracking-tight">AI Settings</h1>
         <p className="text-slate-500 mt-2">
-          Configure how Closebot's AI interacts with your contacts and manages pipelines.
+          Configure how Closebot&apos;s AI interacts with your contacts and manages pipelines.
         </p>
       </div>
 
