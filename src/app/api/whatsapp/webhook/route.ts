@@ -236,7 +236,7 @@ async function processWebhook(body: { entry?: WhatsAppWebhookEntry[] }) {
 
       if (configError) {
         console.error(
-          'Error fetching whatsapp_config for phone_number_id:',
+          '[webhook-debug] ERROR fetching whatsapp_config for phone_number_id:',
           phoneNumberId,
           configError
         )
@@ -244,13 +244,13 @@ async function processWebhook(body: { entry?: WhatsAppWebhookEntry[] }) {
       }
 
       if (!configRows || configRows.length === 0) {
-        console.error('No config found for phone_number_id:', phoneNumberId)
+        console.error('[webhook-debug] ERROR: No config found for phone_number_id:', phoneNumberId)
         continue
       }
 
       if (configRows.length > 1) {
         console.error(
-          `Multiple configs (${configRows.length}) found for phone_number_id:`,
+          `[webhook-debug] ERROR: Multiple configs (${configRows.length}) found for phone_number_id:`,
           phoneNumberId,
           '— inbound message dropped. Resolve duplicates so each number maps to a single user.',
           'Owners:',
@@ -596,7 +596,7 @@ async function processMessage(
   })
 
   if (msgError) {
-    console.error('Error inserting message:', msgError)
+    console.error('[webhook-debug] ERROR inserting message:', msgError)
     return
   }
 
@@ -612,7 +612,7 @@ async function processMessage(
     .eq('id', conversation.id)
 
   if (convError) {
-    console.error('Error updating conversation:', convError)
+    console.error('[webhook-debug] Error updating conversation:', convError)
   }
 
   // If this contact was a recent broadcast recipient, flag the reply
@@ -865,7 +865,7 @@ async function findOrCreateContact(
     .eq('user_id', userId)
 
   if (contactsError) {
-    console.error('Error fetching contacts:', contactsError)
+    console.error('[webhook-debug] ERROR fetching contacts:', contactsError)
     return null
   }
 
@@ -895,7 +895,7 @@ async function findOrCreateContact(
     .single()
 
   if (createError) {
-    console.error('Error creating contact:', createError)
+    console.error('[webhook-debug] ERROR creating contact:', createError)
     return null
   }
 
@@ -926,7 +926,7 @@ async function findOrCreateConversation(userId: string, contactId: string) {
     .single()
 
   if (createError) {
-    console.error('Error creating conversation:', createError)
+    console.error('[webhook-debug] ERROR creating conversation:', createError)
     return null
   }
 
