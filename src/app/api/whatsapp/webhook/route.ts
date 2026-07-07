@@ -198,9 +198,11 @@ export async function POST(request: Request) {
   }
 
   // Process the webhook (even if signature failed, for debugging)
-  processWebhook(body).catch((error) => {
+  try {
+    await processWebhook(body)
+  } catch (error) {
     console.error('[webhook-debug] Error processing webhook:', error)
-  })
+  }
 
   return NextResponse.json({ status: 'received' }, { status: 200 })
 }
