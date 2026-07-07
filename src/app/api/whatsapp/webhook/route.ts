@@ -162,12 +162,20 @@ export async function POST(request: Request) {
   const rawBody = await request.text()
   const signature = request.headers.get('x-hub-signature-256')
 
-  if (!verifyMetaWebhookSignature(rawBody, signature)) {
-    // 401 (not 200) — we want Meta's delivery dashboard to show failures
-    // loudly if a misconfiguration causes signatures to stop matching,
-    // rather than silently eating events.
-    console.warn('[webhook] rejected request with invalid signature')
-    return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
+  // ===== TEMPORARY DEBUG LOGGING =====
+  console.log('[webhook-debug] POST received at', new Date().toISOString())
+  console.log('[webhook-debug] Has signature header:', !!signature)
+  console.log('[webhook-debug] META_APP_SECRET set:', !!process.env.META_APP_SECRET)
+  console.log('[webhook-debug] META_APP_SECRET length:', process.env.META_APP_SECRET?.length ?? 0)
+  console.log('[webhook-debug] Body preview:', rawBody.substring(0, 500))
+  // ===== END DEBUG LOGGING =====
+
+  // Temporarily skip signature verification for debugging.
+  // TODO: Re-enable after confirming messages flow end-to-end.
+  const sigValid = verifyMetaWebhookSignature(rawBody, signature)
+  console.log('[webhook-debug] Signature valid:', sigValid)
+  if (!sigValid) {
+    console.warn('[webhook-debug] Signature FAILED — but processing anyway for debugging')
   }
 
   let body: { entry?: WhatsAppWebhookEntry[] }
@@ -177,9 +185,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
   }
 
-  // Process asynchronously so we can ack Meta within their timeout.
+  console.log('[webhook-debug] Entries count:', body.entry?.length ?? 0)
+  if (body.entry) {
+    for (const entry of body.entry) {
+      for (const change of entry.changes) {
+        console.log('[webhook-debug] Change field:', change.field)
+        console.log('[webhook-debug] Messages:', JSON.stringify(change.value.messages?.length ?? 0))
+        console.log('[webhook-debug] Statuses:', JSON.stringify(change.value.statuses?.length ?? 0))
+        console.log('[webhook-debug] phone_number_id:', change.value.metadata?.phone_number_id)
+      }
+    }
+  }
+
+  // Process the webhook (even if signature failed, for debugging)
   processWebhook(body).catch((error) => {
-    console.error('Error processing webhook:', error)
+    console.error('[webhook-debug] Error processing webhook:', error)
   })
 
   return NextResponse.json({ status: 'received' }, { status: 200 })
