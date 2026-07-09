@@ -11,10 +11,12 @@ import { PasswordForm } from '@/components/settings/password-form';
 import { SessionsCard } from '@/components/settings/sessions-card';
 import { AppearancePanel } from '@/components/settings/appearance-panel';
 import { AISettings } from '@/components/settings/ai-settings';
-import { Bot } from 'lucide-react';
+import { Bot, Users } from 'lucide-react';
+import { TeamManagement } from '@/components/settings/team-management';
 
 const TAB_VALUES = [
   'profile',
+  'team',
   'whatsapp',
   'templates',
   'tags',
@@ -64,6 +66,13 @@ export default function SettingsPage() {
             Profile
           </TabsTrigger>
           <TabsTrigger
+            value="team"
+            className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm text-slate-600 font-bold gap-2"
+          >
+            <Users className="size-4" />
+            Team
+          </TabsTrigger>
+          <TabsTrigger
             value="whatsapp"
             className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm text-slate-600 font-bold gap-2"
           >
@@ -104,6 +113,10 @@ export default function SettingsPage() {
           <ProfileForm />
           <PasswordForm />
           <SessionsCard />
+        </TabsContent>
+
+        <TabsContent value="team">
+          <TeamManagement />
         </TabsContent>
 
         <TabsContent value="whatsapp">

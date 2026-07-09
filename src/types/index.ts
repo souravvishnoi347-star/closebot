@@ -13,6 +13,7 @@ export interface Profile {
    * the `profiles` row.
    */
   beta_features?: string[];
+  invited_by?: string;
   created_at: string;
 }
 
@@ -24,6 +25,8 @@ export interface Contact {
   email?: string;
   company?: string;
   avatar_url?: string;
+  assigned_to?: string;
+  assignee?: Profile;
   created_at: string;
   updated_at: string;
 }

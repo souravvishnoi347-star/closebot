@@ -77,6 +77,17 @@ export function ConversationList({
     let cancelled = false;
 
     (async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      const { data: profileData } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("id", user.id)
+        .single();
+        
+      const role = profileData?.role || 'admin';
+
       const { data, error } = await supabase
         .from("conversations")
         .select("*, contact:contacts(*)")
@@ -96,7 +107,14 @@ export function ConversationList({
         return;
       }
 
-      onConversationsLoadedRef.current(data ?? []);
+      let filteredData = data ?? [];
+      
+      // If agent, only show assigned conversations
+      if (role === 'agent') {
+        filteredData = filteredData.filter(c => c.contact?.assigned_to === user.id);
+      }
+
+      onConversationsLoadedRef.current(filteredData);
       setLoading(false);
     })();
 

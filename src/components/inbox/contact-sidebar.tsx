@@ -19,6 +19,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { format } from "date-fns";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import type { Profile } from "@/types";
 
 interface ContactSidebarProps {
   contact: Contact | null;
@@ -31,6 +39,15 @@ export function ContactSidebar({ contact }: ContactSidebarProps) {
   const [tags, setTags] = useState<(Tag & { contact_tag_id: string })[]>([]);
   const [newNote, setNewNote] = useState("");
   const [addingNote, setAddingNote] = useState(false);
+  const [teamMembers, setTeamMembers] = useState<Profile[]>([]);
+  const [assignedTo, setAssignedTo] = useState<string | null>(contact?.assigned_to || null);
+  const [isAssigning, setIsAssigning] = useState(false);
+
+  useEffect(() => {
+    if (contact) {
+      setAssignedTo(contact.assigned_to || null);
+    }
+  }, [contact?.assigned_to, contact?.id]);
 
   const fetchContactData = useCallback(async () => {
     if (!contact) return;
@@ -65,6 +82,12 @@ export function ContactSidebar({ contact }: ContactSidebarProps) {
           contact_tag_id: ct.id as string,
         }));
       setTags(mapped);
+    }
+
+    // Fetch team members for assignment
+    const { data: teamData } = await supabase.from("profiles").select("*");
+    if (teamData) {
+      setTeamMembers(teamData as Profile[]);
     }
   }, [contact]);
 
@@ -111,6 +134,25 @@ export function ContactSidebar({ contact }: ContactSidebarProps) {
     }
     setAddingNote(false);
   }, [contact, newNote]);
+
+  const handleAssign = useCallback(async (agentId: string) => {
+    if (!contact) return;
+    setIsAssigning(true);
+    const newAssignedTo = agentId === "unassigned" ? null : agentId;
+    
+    const supabase = createClient();
+    const { error } = await supabase
+      .from("contacts")
+      .update({ assigned_to: newAssignedTo })
+      .eq("id", contact.id);
+      
+    if (!error) {
+      setAssignedTo(newAssignedTo);
+      // We mutate the local object so it stays consistent without a full refetch
+      contact.assigned_to = newAssignedTo || undefined;
+    }
+    setIsAssigning(false);
+  }, [contact]);
 
   if (!contact) {
     return (
@@ -186,6 +228,31 @@ export function ContactSidebar({ contact }: ContactSidebarProps) {
                 <span className="truncate font-medium">{contact.email}</span>
               </div>
             )}
+            
+            {/* Agent Assignment */}
+            <div className="pt-2">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 block">
+                Assigned To
+              </label>
+              <Select
+                value={assignedTo || "unassigned"}
+                onValueChange={handleAssign}
+                disabled={isAssigning}
+              >
+                <SelectTrigger className="w-full bg-slate-50 border-slate-200 shadow-sm">
+                  <SelectValue placeholder="Select Agent" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="unassigned" className="text-slate-500 italic">Unassigned</SelectItem>
+                  {teamMembers.map((member) => (
+                    <SelectItem key={member.id} value={member.id}>
+                      {member.full_name || member.email} {member.role === 'admin' ? '(Admin)' : ''}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
           </div>
         </div>
 
