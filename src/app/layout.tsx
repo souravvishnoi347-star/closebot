@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   },
   description: "High-end SaaS CRM platform.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
   icons: {
     icon: [{ url: "/icon" }],

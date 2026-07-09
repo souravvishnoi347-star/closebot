@@ -191,7 +191,7 @@ export default function LoginPage() {
               <div className="h-8 w-8 rounded-full border-2 border-zinc-900 bg-zinc-700"></div>
               <div className="h-8 w-8 rounded-full border-2 border-zinc-900 bg-zinc-600"></div>
             </div>
-            <span>Join 10,000+ businesses</span>
+            <span>Join 500+ businesses and 50+ agencies</span>
           </div>
         </div>
       </div>

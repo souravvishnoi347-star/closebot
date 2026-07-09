@@ -248,7 +248,10 @@ export default function LandingPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">Simple Pricing. No Hidden Fees.</h2>
-              <p className="text-lg text-slate-600">Invest in revenue tracking, not just a bot.</p>
+              <p className="text-lg text-slate-600 mb-2">Invest in revenue tracking, not just a bot.</p>
+              <p className="inline-flex text-sm font-bold text-blue-700 bg-blue-100 px-4 py-1.5 rounded-full">
+                10x simpler than legacy CRM + AI built for conversions
+              </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -263,7 +266,7 @@ export default function LandingPage() {
                 <div className="font-semibold text-slate-700 mb-6 border-b pb-6">1 user</div>
                 <Link href="/signup" className="mt-auto">
                   <Button variant="outline" className="w-full h-12 border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 font-bold text-base rounded-xl transition-all">
-                    Start Free Trial
+                    Start 14-Day Free Trial
                   </Button>
                 </Link>
               </div>
@@ -282,7 +285,7 @@ export default function LandingPage() {
                 <div className="font-semibold text-blue-100 mb-6 border-b border-blue-500 pb-6">Up to 3 users</div>
                 <Link href="/signup" className="mt-auto">
                   <Button className="w-full h-12 bg-white text-blue-600 hover:bg-slate-50 font-bold text-base rounded-xl transition-all">
-                    Start Free Trial
+                    Start 14-Day Free Trial
                   </Button>
                 </Link>
               </div>
