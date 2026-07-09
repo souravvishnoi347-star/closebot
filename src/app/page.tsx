@@ -345,7 +345,7 @@ export default function LandingPage() {
               <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
                 <div>
                   <div className="flex gap-1 text-amber-400 mb-4">{'★'.repeat(5)}</div>
-                  <p className="text-slate-700 italic font-medium text-lg mb-8">"Added Closebot in July. Same ad spend. +₹18L in revenue."</p>
+                  <p className="text-slate-700 italic font-medium text-lg mb-8">&quot;Added Closebot in July. Same ad spend. +₹18L in revenue.&quot;</p>
                 </div>
                 <div>
                   <p className="font-bold text-slate-900">Rohan Sharma</p>
@@ -356,7 +356,7 @@ export default function LandingPage() {
               <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
                 <div>
                   <div className="flex gap-1 text-amber-400 mb-4">{'★'.repeat(5)}</div>
-                  <p className="text-slate-700 italic font-medium text-lg mb-8">"90-second response time. 40% of leads book without my input."</p>
+                  <p className="text-slate-700 italic font-medium text-lg mb-8">&quot;90-second response time. 40% of leads book without my input.&quot;</p>
                 </div>
                 <div>
                   <p className="font-bold text-slate-900">Priya Desai</p>
@@ -367,7 +367,7 @@ export default function LandingPage() {
               <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between">
                 <div>
                   <div className="flex gap-1 text-amber-400 mb-4">{'★'.repeat(5)}</div>
-                  <p className="text-slate-700 italic font-medium text-lg mb-8">"Replaced 2 part-time VAs. Closed 8 more deals. Still cheaper."</p>
+                  <p className="text-slate-700 italic font-medium text-lg mb-8">&quot;Replaced 2 part-time VAs. Closed 8 more deals. Still cheaper.&quot;</p>
                 </div>
                 <div>
                   <p className="font-bold text-slate-900">Amit Patel</p>
@@ -404,7 +404,7 @@ export default function LandingPage() {
                   How different is it from Superfone?
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-600 text-base pb-6 leading-relaxed">
-                  Closebot is built specifically for Meta Ads lead conversion. Superfone is a general phone system. We're 3x cheaper, 10x simpler, and 2x better at actual WhatsApp conversions.
+                  Closebot is built specifically for Meta Ads lead conversion. Superfone is a general phone system. We&apos;re 3x cheaper, 10x simpler, and 2x better at actual WhatsApp conversions.
                 </AccordionContent>
               </AccordionItem>
               
@@ -413,7 +413,7 @@ export default function LandingPage() {
                   Can I use it for other platforms (Google Ads, etc)?
                 </AccordionTrigger>
                 <AccordionContent className="text-slate-600 text-base pb-6 leading-relaxed">
-                  Currently we focus on Meta Ads because that's where 80% of your leads are generated. We're building multi-channel support in Q3 2026.
+                  Currently we focus on Meta Ads because that&apos;s where 80% of your leads are generated. We&apos;re building multi-channel support in Q3 2026.
                 </AccordionContent>
               </AccordionItem>
               
