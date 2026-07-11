@@ -135,8 +135,8 @@ export function ContactSidebar({ contact }: ContactSidebarProps) {
     setAddingNote(false);
   }, [contact, newNote]);
 
-  const handleAssign = useCallback(async (agentId: string) => {
-    if (!contact) return;
+  const handleAssign = useCallback(async (agentId: string | null) => {
+    if (!contact || !agentId) return;
     setIsAssigning(true);
     const newAssignedTo = agentId === "unassigned" ? null : agentId;
     
