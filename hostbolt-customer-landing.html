@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hostbolt — We find where your business is losing money. Then we fix it.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+/* ─── PREMIUM LIGHT DESIGN TOKENS ─── */
+:root {
+  --bg:      #F8FAFC;
+  --bg2:     #FFFFFF;
+  --card:    #FFFFFF;
+  --card2:   #F1F5F9;
+  --primary: #1A56DB; 
+  --p-s:     rgba(26, 86, 219, 0.08);
+  --p-b:     rgba(26, 86, 219, 0.20);
+  --p-g:     rgba(26, 86, 219, 0.40);
+  --teal:    #059669; 
+  --t-s:     rgba(5, 150, 105, 0.08);
+  --t-b:     rgba(5, 150, 105, 0.20);
+  --text-main: #0F172A; 
+  --muted:   #475569; 
+  --muted2:  #94A3B8; 
+  --border:  #E2E8F0; 
+  --fd: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --fb: 'Inter', system-ui, sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+  --max: 1160px;
+}
+
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--text-main);
+  font-family: var(--fb); overflow-x: hidden; line-height: 1.6; font-size: 16px;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: linear-gradient(rgba(26,86,219,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(26,86,219,0.03) 1px, transparent 1px);
+  background-size: 64px 64px; pointer-events: none; z-index: 0;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── LAYOUT & TYPOGRAPHY ─── */
+.wrap { max-width: var(--max); margin: 0 auto; }
+.z1  { position: relative; z-index: 1; }
+.eyebrow {
+  font-family: var(--fm); font-size: 0.7rem; color: var(--primary);
+  letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; font-weight: 500;
+}
+h2.sh {
+  font-family: var(--fd); font-size: clamp(1.8rem, 2.8vw, 2.7rem);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px;
+}
+p.ssub {
+  font-size: 1.05rem; color: var(--muted); max-width: 580px; line-height: 1.6; margin-bottom: 56px;
+}
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--primary); color: #FFFFFF;
+  font-family: var(--fd); font-weight: 700; font-size: 0.95rem;
+  padding: 15px 32px; border-radius: 8px; transition: all 0.2s; box-shadow: 0 4px 12px var(--p-b);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--p-g); color: #FFFFFF;}
+.btn-ghost {
+  font-family: var(--fb); font-size: 0.95rem; font-weight: 500; color: var(--muted);
+  border-bottom: 1px solid var(--muted2); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+}
+.btn-ghost:hover { color: var(--primary); border-color: var(--primary); }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 60px; background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(16px); border-bottom: 1px solid var(--border);
+}
+.logo img { height: 36px; width: auto; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-family: var(--fb); font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
+.nav-links a:hover { color: var(--primary); }
+.nav-cta {
+  background: var(--primary); color: #FFFFFF;
+  font-family: var(--fd); font-weight: 700; font-size: 0.85rem;
+  padding: 11px 24px; border-radius: 6px; transition: all 0.2s;
+}
+.nav-cta:hover { opacity: 0.9; transform: translateY(-1px); color: #FFFFFF; }
+
+/* ─── HERO ─── */
+.hero-wrap { position: relative; z-index: 1; background: var(--bg); padding-top: 80px; }
+.hero-grid {
+  max-width: var(--max); margin: 0 auto; padding: 80px 60px;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 72px; min-height: calc(100vh - 80px);
+}
+.hero-category {
+  font-family: var(--fm); font-size: 0.75rem; color: var(--primary);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px; display: flex; align-items: center; gap: 10px; font-weight: 500;
+}
+.hero-category::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--primary); }
+h1.hero-h {
+  font-family: var(--fd); font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+  font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 24px;
+}
+h1.hero-h .accent { color: var(--primary); }
+.hero-body {
+  font-size: 1.1rem; color: var(--muted); max-width: 480px; line-height: 1.6; margin-bottom: 40px;
+}
+.hero-body strong { color: var(--text-main); font-weight: 600; }
+.hero-ctas { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+
+.whisper-panel {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 36px; position: relative; overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+}
+.whisper-panel::before {
+  content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px;
+  background: radial-gradient(circle, var(--p-s), transparent 70%); border-radius: 50%; pointer-events: none;
+}
+.whisper-lbl {
+  font-family: var(--fm); font-size: 0.65rem; color: var(--muted);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; font-weight: 500;
+}
+.whisper-item {
+  padding: 14px 16px; background: var(--bg); border: 1px solid var(--border);
+  border-left: 3px solid var(--primary); border-radius: 8px; margin-bottom: 12px;
+}
+.whisper-item p { font-size: 0.9rem; font-style: italic; color: var(--muted); line-height: 1.5; }
+.whisper-item p em { font-style: normal; color: var(--text-main); font-weight: 600; }
+.whisper-foot {
+  font-family: var(--fm); font-size: 0.65rem; color: var(--muted2); text-align: center; margin-top: 18px; letter-spacing: 0.04em;
+}
+
+/* ─── MONOLOGUE STRIP ─── */
+.mono-wrap {
+  position: relative; z-index: 1; background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 26px 0; overflow: hidden;
+}
+.mono-track { display: flex; animation: scrollL 60s linear infinite; white-space: nowrap; }
+.mono-thought {
+  display: inline-flex; align-items: center; padding: 0 64px;
+  font-size: 0.95rem; font-style: italic; color: var(--muted); white-space: nowrap;
+}
+.mono-thought::after { content: '·'; color: var(--primary); margin-left: 64px; font-style: normal; font-size: 1.4rem; line-height: 1; }
+@keyframes scrollL { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ─── SECTIONS ─── */
+.sec { position: relative; z-index: 1; padding: 96px 60px; }
+
+/* ─── PAIN ─── */
+.pain-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.pain-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 36px 28px;
+  transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+}
+.pain-card:hover { border-color: var(--p-b); transform: translateY(-4px); box-shadow: 0 10px 20px -5px rgba(26,86,219,0.08); }
+.pain-icon { font-size: 1.8rem; margin-bottom: 20px; display: block; }
+.pain-title { font-family: var(--fd); font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
+.pain-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+.pain-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.pain-list li { font-size: 0.85rem; color: var(--muted); display: flex; gap: 10px; line-height: 1.45; font-style: italic; }
+.pain-list li::before { content: '"'; color: var(--primary); flex-shrink: 0; font-weight: 700;}
+
+/* ─── TRANSFORM ─── */
+.t-pairs { display: flex; flex-direction: column; }
+.t-row {
+  display: grid; grid-template-columns: 1fr 52px 1fr; align-items: center; gap: 32px;
+  padding: 28px 0; border-bottom: 1px solid var(--border);
+}
+.t-row:last-child { border-bottom: none; }
+.t-before { font-size: 1.05rem; color: var(--muted); line-height: 1.5; text-decoration: line-through; text-decoration-color: var(--muted2); }
+.t-arr {
+  width: 52px; height: 52px; flex-shrink: 0; background: var(--p-s); border: 1px solid var(--p-b);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.1rem;
+}
+.t-after { font-family: var(--fd); font-size: 1.05rem; font-weight: 600; line-height: 1.5; }
+.t-tag {
+  display: block; margin-top: 8px; font-family: var(--fm); font-size: 0.65rem;
+  color: var(--primary); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+}
+
+/* ─── PROOF ─── */
+.proof-top { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 52px; }
+.proof-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+.pstat-num { font-family: var(--fd); font-size: 2.8rem; font-weight: 800; color: var(--primary); letter-spacing: -0.04em; line-height: 1; }
+.pstat-lbl { font-size: 0.85rem; color: var(--muted); margin-top: 8px; font-weight: 500; }
+.proof-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+.proof-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 32px;
+  transition: all 0.25s; box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+}
+.proof-card:hover { border-color: var(--p-b); box-shadow: 0 8px 24px rgba(26,86,219,0.06); }
+.proof-sector { font-family: var(--fm); font-size: 0.65rem; color: var(--primary); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+.proof-client { font-family: var(--fd); font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+.proof-lines { display: flex; flex-direction: column; gap: 14px; }
+.proof-line { display: grid; grid-template-columns: 100px 1fr; gap: 12px; font-size: 0.9rem; line-height: 1.5; }
+.pl-k { font-family: var(--fm); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+.pl-v { font-weight: 400; }
+
+/* ─── CLOSEBOT ─── */
+.cb-section {
+  position: relative; z-index: 1; background: #FFFFFF;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 96px 60px;
+}
+.cb-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; margin-bottom: 56px; }
+.cb-eye {
+  font-family: var(--fm); font-size: 0.75rem; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-weight: 500;
+}
+.cb-eye::before { content: ''; width: 24px; height: 1px; background: var(--teal); }
+h2.cb-h { font-family: var(--fd); font-size: clamp(1.6rem, 2.6vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+.cb-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.6; margin-bottom: 32px; }
+.cb-feats { display: flex; flex-direction: column; gap: 12px; }
+.cb-feat { display: flex; gap: 16px; padding: 16px 20px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
+.cb-ico { width: 36px; height: 36px; background: var(--t-s); color: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.cb-ft { font-family: var(--fd); font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+.cb-fd { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+/* Chat panel */
+.chat-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.chat-panel { background: var(--bg); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+.chat-panel.active { border-color: var(--t-b); box-shadow: 0 8px 24px rgba(5,150,105,0.08); }
+.chat-hd { padding: 12px 16px; background: var(--card); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+.cd { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.cd-bad  { background: var(--muted2); }
+.cd-good { background: var(--teal); animation: cdpulse 2s infinite; }
+@keyframes cdpulse { 0%,100%{opacity:1} 50%{opacity:0.45} }
+.chat-hd-lbl { font-family: var(--fm); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+.cd-bad + .chat-hd-lbl { color: var(--muted); }
+.cd-good + .chat-hd-lbl { color: var(--teal); }
+.chat-body { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.ci { padding: 12px 14px; border-radius: 8px; background: var(--card); border: 1px solid var(--border); }
+.ci-n { font-family: var(--fd); font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between; }
+.ci-score { font-family: var(--fm); font-size: 0.6rem; font-weight: 500; }
+.s-hot  { color: #E11D48; } .s-warm { color: #D97706; } .s-cold { color: var(--muted2); } .s-done { color: var(--teal); }
+.ci-m { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+.ci.cb { background: var(--t-s); border-color: var(--t-b); }
+.ci-tag { display: inline-block; margin-top: 6px; font-family: var(--fm); font-size: 0.6rem; color: var(--teal); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+
+.cb-moat { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.moat-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; transition: border-color 0.25s; }
+.moat-card:hover { border-color: var(--t-b); }
+.moat-tag { font-family: var(--fm); font-size: 0.65rem; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+.moat-title { font-family: var(--fd); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+.moat-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+
+/* ─── JOURNEY ─── */
+.journey-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--border); border-radius: 12px; overflow: hidden; }
+.j-step { background: var(--card); padding: 40px 32px; transition: background 0.25s; }
+.j-step:hover { background: var(--bg); }
+.j-phase { font-family: var(--fm); font-size: 0.65rem; color: var(--primary); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; font-weight: 500; }
+.j-title { font-family: var(--fd); font-size: 1.2rem; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.02em; }
+.j-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.5; }
+.j-list { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+.j-list li { font-size: 0.85rem; display: flex; gap: 10px; align-items: flex-start; line-height: 1.4; font-weight: 500; }
+.j-list li::before { content: '→'; color: var(--primary); flex-shrink: 0; }
+.j-note { margin-top: 24px; padding: 12px 16px; background: var(--p-s); border: 1px solid var(--p-b); border-radius: 8px; font-size: 0.8rem; color: var(--primary); line-height: 1.5; font-weight: 500; }
+
+/* ─── PRICING ─── */
+.price-top { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 56px; }
+.price-quote { font-size: 0.95rem; color: var(--muted); line-height: 1.6; border-left: 3px solid var(--primary); padding-left: 20px; }
+.price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.price-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 40px 32px;
+  position: relative; display: flex; flex-direction: column; transition: all 0.3s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+}
+.price-card:hover { border-color: var(--p-b); transform: translateY(-4px); box-shadow: 0 12px 24px -5px rgba(26,86,219,0.1); }
+.price-card.featured { border-color: var(--primary); box-shadow: 0 8px 24px -5px rgba(26,86,219,0.15); }
+.price-card.featured::before {
+  content: 'Most chosen'; position: absolute; top: -14px; left: 32px; background: var(--primary); color: #FFFFFF;
+  font-family: var(--fm); font-size: 0.65rem; letter-spacing: 0.06em; padding: 6px 14px; border-radius: 100px; font-weight: 500;
+}
+.price-phase { font-family: var(--fm); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; font-weight: 500; }
+.price-name { font-family: var(--fd); font-size: 1.3rem; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.02em; }
+.price-from { font-size: 0.8rem; color: var(--muted); margin-bottom: 4px; font-weight: 500;}
+.price-amt { font-family: var(--fd); font-size: 2.4rem; font-weight: 800; color: var(--primary); letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
+.price-per { font-size: 0.8rem; color: var(--muted); margin-bottom: 28px; }
+.price-list { list-style: none; flex: 1; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.price-list li { font-size: 0.9rem; display: flex; gap: 12px; line-height: 1.45; }
+.price-list li::before { content: '✓'; color: var(--primary); flex-shrink: 0; font-weight: 700; font-size: 1rem;}
+.price-btn {
+  display: block; text-align: center; padding: 14px; border-radius: 8px; font-family: var(--fd); font-weight: 700; font-size: 0.95rem;
+  border: 1px solid var(--border); transition: all 0.2s; background: var(--bg);
+}
+.price-btn:hover { border-color: var(--primary); color: var(--primary); background: var(--p-s);}
+.price-card.featured .price-btn { background: var(--primary); color: #FFFFFF; border-color: var(--primary); }
+.price-card.featured .price-btn:hover { box-shadow: 0 4px 12px var(--p-b); transform: translateY(-2px); color: #FFFFFF; }
+
+/* ─── CTA ─── */
+.cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+h2.cta-h { font-family: var(--fd); font-size: clamp(2rem, 3.2vw, 3rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 20px; }
+.cta-h .accent { color: var(--primary); }
+.cta-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.6; }
+.cta-panel { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 48px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); }
+.cta-panel-lbl { font-family: var(--fm); font-size: 0.7rem; color: var(--primary); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
+.cta-opts { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.cta-opt {
+  display: flex; align-items: flex-start; gap: 16px; padding: 16px 20px; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; cursor: pointer; transition: all 0.2s;
+}
+.cta-opt:hover { border-color: var(--primary); background: var(--p-s); }
+.cta-opt-ico { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.cta-opt-title { font-family: var(--fd); font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+.cta-opt-desc { font-size: 0.85rem; color: var(--muted); }
+.cta-main {
+  display: block; text-align: center; background: var(--primary); color: #FFFFFF; font-family: var(--fd); font-weight: 700; font-size: 1rem;
+  padding: 16px; border-radius: 8px; transition: all 0.2s;
+}
+.cta-main:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--p-b); color: #FFFFFF;}
+
+/* ─── FOOTER ─── */
+footer { position: relative; z-index: 1; background: var(--card); border-top: 1px solid var(--border); padding: 64px 60px 40px; }
+.ft-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 56px; }
+.ft-logo img { height: 44px; margin-bottom: 20px; }
+.ft-tagline { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 20px; max-width: 400px; }
+.ft-entity { font-family: var(--fm); font-size: 0.65rem; color: var(--muted2); letter-spacing: 0.06em; font-weight: 500;}
+.ft-col-h { font-family: var(--fd); font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; }
+.ft-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.ft-links a { font-size: 0.9rem; color: var(--muted); transition: color 0.2s; }
+.ft-links a:hover { color: var(--primary); }
+.ft-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 16px; }
+.ft-copy { font-size: 0.8rem; color: var(--muted2); }
+.ft-badges { display: flex; gap: 12px; }
+.ft-badge { font-family: var(--fm); font-size: 0.65rem; color: var(--muted); border: 1px solid var(--border); padding: 4px 12px; border-radius: 4px; letter-spacing: 0.06em; font-weight: 500; background: var(--bg); }
+
+/* ─── REVEAL ─── */
+.rev { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.rev.on { opacity: 1; transform: translateY(0); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1000px) {
+  nav { padding: 16px 20px; } .nav-links { display: none; }
+  .hero-grid { grid-template-columns: 1fr; padding: 60px 20px; gap: 40px; min-height: auto; }
+  .whisper-panel { display: none; } .sec { padding: 64px 20px; } .cb-section { padding: 64px 20px; }
+  #cta { padding: 64px 20px !important; } footer { padding: 48px 20px 28px; }
+  .pain-grid { grid-template-columns: 1fr; } .t-row { grid-template-columns: 1fr 44px 1fr; gap: 16px; }
+  .t-before, .t-after { font-size: 0.95rem; } .proof-top { grid-template-columns: 1fr; gap: 32px; }
+  .proof-grid { grid-template-columns: 1fr; } .cb-intro { grid-template-columns: 1fr; gap: 40px; }
+  .chat-compare { grid-template-columns: 1fr; } .cb-moat { grid-template-columns: 1fr; }
+  .journey-grid { grid-template-columns: 1fr; background: none; border-radius: 0; gap: 12px; }
+  .j-step { border: 1px solid var(--border); border-radius: 12px; }
+  .price-top { grid-template-columns: 1fr; gap: 24px; } .price-grid { grid-template-columns: 1fr; }
+  .cta-grid { grid-template-columns: 1fr; gap: 40px; } .ft-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (prefers-reduced-motion: reduce) { .mono-track { animation-play-state: paused; } .rev { opacity: 1 !important; transform: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="z1">
+  <a href="#" class="logo">
+    <img src="logo (bg).png" alt="Hostbolt Logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#pain">How We Help</a></li>
+    <li><a href="#proof">Our Work</a></li>
+    <li><a href="#closebot">Closebot</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Fix My Revenue Leak →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-category">Built for Scaling SMBs</div>
+      <h1 class="hero-h">
+        You run Meta Ads. The leads come to WhatsApp.<br />
+        <span class="accent">Then... silence.</span>
+      </h1>
+      <p class="hero-body">
+        Hostbolt plugs the leaks. 
+        <strong>We build interactive 3D Websites, custom AI operations, and a WhatsApp revenue platform (Closebot)</strong> — ensuring every rupee you spend on marketing actually turns into closed revenue.
+      </p>
+      <div class="hero-ctas">
+        <a href="#cta" class="btn-primary">Stop losing expensive leads →</a>
+        <a href="#proof" class="btn-ghost">See our tech stack</a>
+      </div>
+    </div>
+
+    <div class="whisper-panel">
+      <div class="whisper-lbl">The reality of Indian SMBs</div>
+      <div class="whisper-item">
+        <p>"I spent <em>₹40,000 on Meta ads</em>. I have no idea which campaign actually brought in a client."</p>
+      </div>
+      <div class="whisper-item">
+        <p>"A real estate buyer asked for property photos. We sent 2D JPEGs. <em>They bought from a competitor who sent a 3D walkthrough.</em>"</p>
+      </div>
+      <div class="whisper-item">
+        <p>"My CRM is a WhatsApp group and an Excel file I stopped updating in March."</p>
+      </div>
+      <div class="whisper-foot">Sound familiar? You're in the right place.</div>
+    </div>
+  </div>
+</div>
+
+<!-- MONOLOGUE STRIP -->
+<div class="mono-wrap z1">
+  <div class="mono-track">
+    <span class="mono-thought">"I had 40 WhatsApp inquiries last week. I don't know how many converted."</span>
+    <span class="mono-thought">"Clients want to see the property, but standard photos don't convert them."</span>
+    <span class="mono-thought">"I'm running ads on Meta and Google. I couldn't tell you the real ROI."</span>
+    <span class="mono-thought">"My staff spends two hours every morning doing manual entry."</span>
+    <span class="mono-thought">"Guests Google us and find a website that looks nothing like our premium service."</span>
+    <span class="mono-thought">"I know I'm losing revenue somewhere. I just don't know exactly where."</span>
+    <!-- Duplicate for loop -->
+    <span class="mono-thought">"I had 40 WhatsApp inquiries last week. I don't know how many converted."</span>
+    <span class="mono-thought">"Clients want to see the property, but standard photos don't convert them."</span>
+    <span class="mono-thought">"I'm running ads on Meta and Google. I couldn't tell you the real ROI."</span>
+    <span class="mono-thought">"My staff spends two hours every morning doing manual entry."</span>
+    <span class="mono-thought">"Guests Google us and find a website that looks nothing like our premium service."</span>
+    <span class="mono-thought">"I know I'm losing revenue somewhere. I just don't know exactly where."</span>
+  </div>
+</div>
+
+<!-- PAIN -->
+<section class="sec z1" id="pain">
+  <div class="wrap">
+    <div class="eyebrow">Where the money goes</div>
+    <h2 class="sh">Three places your business is<br />losing revenue right now</h2>
+    <p class="ssub">We build tech products because we got tired of seeing these exact same leaks in every service business we audited.</p>
+    <div class="pain-grid">
+
+      <div class="pain-card rev">
+        <span class="pain-icon">📱</span>
+        <div class="pain-title">Your WhatsApp inbox is a graveyard of expensive Meta leads</div>
+        <p class="pain-desc">You pay Zuckerberg for leads, but WhatsApp has no lead scoring or ROI tracking. It's just names and timestamps — and hot leads are quietly dying there.</p>
+        <ul class="pain-list">
+          <li>Inquiries that get a reply 8 hours too late</li>
+          <li>High-ticket clients buried under casual chats</li>
+          <li>Zero visibility on which ad actually closed</li>
+        </ul>
+      </div>
+
+      <div class="pain-card rev">
+        <span class="pain-icon">🏗️</span>
+        <div class="pain-title">Flat 2D photos are killing your real estate conversions</div>
+        <p class="pain-desc">If you sell high-ticket properties or premium interiors, standard photos don't build enough trust for remote buyers. They need to 'feel' the space.</p>
+        <ul class="pain-list">
+          <li>Buyers who drop off because they can't visualize the layout</li>
+          <li>Competitors winning with better digital experiences</li>
+          <li>Wasting time on site visits with low-intent leads</li>
+        </ul>
+      </div>
+
+      <div class="pain-card rev">
+        <span class="pain-icon">⏱️</span>
+        <div class="pain-title">Manual operations are capping your growth</div>
+        <p class="pain-desc">Check-in registers. Handwritten bills. Copy-pasting travel itineraries in Word. Every hour spent on admin is an hour not spent on scaling.</p>
+        <ul class="pain-list">
+          <li>Front desk: 90+ minutes daily on data entry</li>
+          <li>Travel teams: 3 hours per itinerary</li>
+          <li>Zero automation connecting inquiries to invoices</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORM -->
+<section class="sec z1" id="transform" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="eyebrow">What changes</div>
+    <h2 class="sh">Before Hostbolt. After Hostbolt.</h2>
+    <p class="ssub">We don't sell generic software. We deploy our proprietary micro-SaaS and AI models to change how your business operates.</p>
+    <div class="t-pairs rev">
+      <div class="t-row">
+        <div class="t-before">WhatsApp fills up with Meta ad inquiries that go cold by morning</div>
+        <div class="t-arr">→</div>
+        <div class="t-after">Every lead scored, assigned, and tracked to the exact ad campaign<span class="t-tag">Closebot (Micro-SaaS)</span></div>
+      </div>
+      <div class="t-row">
+        <div class="t-before">Sending 2D image galleries to high-ticket real estate buyers</div>
+        <div class="t-arr">→</div>
+        <div class="t-after">AI generates interactive 3D room walkthroughs from your standard photos<span class="t-tag">Supersplat 3D Engine</span></div>
+      </div>
+      <div class="t-row">
+        <div class="t-before">Front desk spends 90 minutes every morning on check-in registers</div>
+        <div class="t-arr">→</div>
+        <div class="t-after">Check-in, billing, and guest ID automated before the guest walks in<span class="t-tag">Hotel AI Automation</span></div>
+      </div>
+      <div class="t-row">
+        <div class="t-before">Travel team builds each itinerary and voucher manually, one at a time</div>
+        <div class="t-arr">→</div>
+        <div class="t-after">Itineraries, vouchers, and invoices generated instantly via AI CRM<span class="t-tag">Custom AI Workflow</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="sec z1" id="proof">
+  <div class="wrap">
+    <div class="proof-top">
+      <div>
+        <div class="eyebrow">Real work. Real clients.</div>
+        <h2 class="sh">Tech deployed across<br />North India</h2>
+        <p class="ssub" style="margin-bottom:0;">Every project below is live. Built by founders, for founders.</p>
+      </div>
+      <div class="proof-stats">
+        <div><span class="pstat-num">12+</span><div class="pstat-lbl">Clients onboarded</div></div>
+        <div><span class="pstat-num">7</span><div class="pstat-lbl">Live &amp; active</div></div>
+        <div><span class="pstat-num">4</span><div class="pstat-lbl">Industries Transformed</div></div>
+      </div>
+    </div>
+    <div class="proof-grid">
+
+      <!-- Real Estate / Design Proof Added based on your Kartik Project -->
+      <div class="proof-card rev">
+        <div class="proof-sector">🎨 Design &amp; Real Estate</div>
+        <div class="proof-client">Lines and Thoughts (Kartik)</div>
+        <div class="proof-lines">
+          <div class="proof-line"><div class="pl-k">The Problem</div><div class="pl-v">Needed a digital presence that communicated premium interior design quality before the first call.</div></div>
+          <div class="proof-line"><div class="pl-k">The Solution</div><div class="pl-v">Visually immersive portfolio website tailored for high-ticket clients.</div></div>
+          <div class="pl-k" style="margin-top:8px;">Impact: Clients arrive pre-sold on the quality.</div>
+        </div>
+      </div>
+
+      <div class="proof-card rev">
+        <div class="proof-sector">✈️ Travel &amp; Tourism</div>
+        <div class="proof-client">Triloki Group</div>
+        <div class="proof-lines">
+          <div class="proof-line"><div class="pl-k">The Problem</div><div class="pl-v">Losing hot leads in chaotic WhatsApp groups.</div></div>
+          <div class="proof-line"><div class="pl-k">The Solution</div><div class="pl-v">Custom AI CRM with itinerary generation and full revenue pipeline tracking.</div></div>
+          <div class="pl-k" style="margin-top:8px;">Impact: Zero lead leakage across 3 apps.</div>
+        </div>
+      </div>
+
+      <div class="proof-card rev">
+        <div class="proof-sector">🏨 Hospitality</div>
+        <div class="proof-client">Hotel Satyam Swagat</div>
+        <div class="proof-lines">
+          <div class="proof-line"><div class="pl-k">The Problem</div><div class="pl-v">Manual billing and insecure guest ID storage slowing down check-ins.</div></div>
+          <div class="proof-line"><div class="pl-k">The Solution</div><div class="pl-v">Custom software + OTA sync replacing manual registers completely.</div></div>
+        </div>
+      </div>
+
+      <div class="proof-card rev">
+        <div class="proof-sector">🍽️ Food &amp; Beverage</div>
+        <div class="proof-client">Classic Restaurant, Mussoorie</div>
+        <div class="proof-lines">
+          <div class="proof-line"><div class="pl-k">The Problem</div><div class="pl-v">Wrong orders from verbal table-to-kitchen relay in high footfall.</div></div>
+          <div class="proof-line"><div class="pl-k">The Solution</div><div class="pl-v">Fully integrated QR-menu POS with direct kitchen flow.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CLOSEBOT -->
+<div class="cb-section z1" id="closebot">
+  <div class="wrap">
+    <div class="cb-intro">
+      <div>
+        <div class="cb-eye">Our Proprietary SaaS — Closebot</div>
+        <h2 class="cb-h">Built because standard tools couldn't handle our own Meta Ad volumes.</h2>
+        <p class="cb-sub">Closebot is not a basic chatbot. It's a revenue intelligence layer that sits behind your WhatsApp. We built it to score every lead from Meta/Google, route it, and secure payments instantly.</p>
+        <div class="cb-feats">
+          <div class="cb-feat">
+            <div class="cb-ico">🎯</div>
+            <div>
+              <div class="cb-ft">AI Lead Scoring</div>
+              <div class="cb-fd">Instantly flags hot buyers so your team chases money, not time-wasters.</div>
+            </div>
+          </div>
+          <div class="cb-feat">
+            <div class="cb-ico">📊</div>
+            <div>
+              <div class="cb-ft">Ad-to-WhatsApp Attribution</div>
+              <div class="cb-fd">Finally know exactly which Meta Ad or Google Campaign sent the lead.</div>
+            </div>
+          </div>
+          <div class="cb-feat">
+            <div class="cb-ico">💳</div>
+            <div>
+              <div class="cb-ft">In-Chat Payment Links</div>
+              <div class="cb-fd">Strike while intent is high. Send secure payment links without leaving WhatsApp.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-family:var(--fm);font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;text-align:center;margin-bottom:16px;font-weight:500;">Your WhatsApp — Before vs After</p>
+        <div class="chat-compare">
+          <div class="chat-panel">
+            <div class="chat-hd">
+              <div class="cd cd-bad"></div>
+              <div class="chat-hd-lbl">Without Closebot</div>
+            </div>
+            <div class="chat-body">
+              <div class="ci">
+                <div class="ci-n">Rahul Sharma <span class="ci-score s-cold">2 days ago</span></div>
+                <div class="ci-m">Hum aayenge... (no follow-up)</div>
+              </div>
+              <div class="ci">
+                <div class="ci-n">+91 98XXX XXXXX <span class="ci-score s-cold">Yesterday</span></div>
+                <div class="ci-m">Rates? (replied 11hrs later)</div>
+              </div>
+              <div class="ci">
+                <div class="ci-n">Priya Mehta <span class="ci-score s-cold">3 days</span></div>
+                <div class="ci-m">Availability? (seen, no reply)</div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-panel active">
+            <div class="chat-hd">
+              <div class="cd cd-good"></div>
+              <div class="chat-hd-lbl">With Closebot</div>
+            </div>
+            <div class="chat-body">
+              <div class="ci cb">
+                <div class="ci-n">Rahul Sharma <span class="ci-score s-hot">🔥 HOT</span></div>
+                <div class="ci-m">Source: Meta Ad (Campaign #4)<br><span class="ci-tag">→ Auto-Assigned: Ravi</span></div>
+              </div>
+              <div class="ci cb">
+                <div class="ci-n">Priya Mehta <span class="ci-score s-warm">◉ WARM</span></div>
+                <div class="ci-m">Source: Google Search Ad<br><span class="ci-tag">→ Payment link sent ₹12,600</span></div>
+              </div>
+              <div class="ci cb">
+                <div class="ci-n">Suresh Kapoor <span class="ci-score s-done">✓ CLOSED</span></div>
+                <div class="ci-m">Source: GMB Organic<br><span class="ci-tag">Booking confirmed via WhatsApp</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cb-moat">
+      <div class="moat-card rev">
+        <div class="moat-tag">The Tech Moat</div>
+        <div class="moat-title">Your Data Compounds</div>
+        <div class="moat-desc">Lead attribution builds a record of what works for your specific business. After 90 days, your marketing ROI becomes predictable.</div>
+      </div>
+      <div class="moat-card rev">
+        <div class="moat-tag">Operational Moat</div>
+        <div class="moat-title">Zero Learning Curve</div>
+        <div class="moat-desc">It operates silently in the background. Your team uses WhatsApp just like before, but with AI superpowers.</div>
+      </div>
+      <div class="moat-card rev">
+        <div class="moat-tag">Rapid Deployment</div>
+        <div class="moat-title">Built for Implementation</div>
+        <div class="moat-desc">Because Hostbolt acts as your agency, we don't just sell you software. We map it to your exact sales process and deploy it in days.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JOURNEY -->
+<section class="sec z1" id="how">
+  <div class="wrap">
+    <div class="eyebrow">The Hostbolt Ecosystem</div>
+    <h2 class="sh">You start where the leak is.<br />We scale the rest.</h2>
+    <p class="ssub">Most clients begin with one urgent fix. The rest follows when the system starts printing money.</p>
+    <div class="journey-grid rev">
+      <div class="j-step">
+        <div class="j-phase">Phase 1: Foundation</div>
+        <div class="j-title">Websites &amp; 3D PropTech</div>
+        <p class="j-desc">If they don't trust what they see, they won't buy. We build high-conversion digital assets.</p>
+        <ul class="j-list">
+          <li>AI-built websites in 48 hours</li>
+          <li><strong>Supersplat AI 3D Room Generation</strong></li>
+          <li>OTA and Google My Business scaling</li>
+        </ul>
+        <div class="j-note">₹14,999 onwards · Delivered in days</div>
+      </div>
+      <div class="j-step">
+        <div class="j-phase">Phase 2: Operations</div>
+        <div class="j-title">Custom Business AI</div>
+        <p class="j-desc">Turning hours of manual work into automated flows that run while you sleep.</p>
+        <ul class="j-list">
+          <li>Hotel check-in &amp; billing automation</li>
+          <li>AI CRM for Travel &amp; Real Estate</li>
+          <li>QR-POS for Restaurants</li>
+        </ul>
+        <div class="j-note">₹24,999 one-time · Or ₹7,999/mo</div>
+      </div>
+      <div class="j-step">
+        <div class="j-phase">Phase 3: Revenue</div>
+        <div class="j-title">Closebot Lead Engine</div>
+        <p class="j-desc">Closing the loop. Ensuring every lead from every ad gets tracked and monetized.</p>
+        <ul class="j-list">
+          <li>Meta/Google Ad attribution</li>
+          <li>AI Lead Scoring in WhatsApp</li>
+          <li>In-chat instant payments</li>
+        </ul>
+        <div class="j-note">From ₹2,999/month · Scalable SaaS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec z1" id="pricing" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="price-top">
+      <div>
+        <div class="eyebrow">Pricing</div>
+        <h2 class="sh">Clear ROI.<br />No enterprise bloat.</h2>
+      </div>
+      <p class="price-quote">Priced for real Indian SMBs. Start with what you need right now. Add the ecosystem when the first solution starts paying for itself.</p>
+    </div>
+    <div class="price-grid">
+
+      <div class="price-card">
+        <div class="price-phase">Foundation</div>
+        <div class="price-name">Digital &amp; 3D Assets</div>
+        <div class="price-from">From</div>
+        <div class="price-amt">₹14,999</div>
+        <div class="price-per">One-time · Live in 48–72 hours</div>
+        <ul class="price-list">
+          <li>High-conversion mobile-first website</li>
+          <li><strong>AI 3D Room Walkthroughs (PropTech)</strong></li>
+          <li>WhatsApp &amp; booking integrations</li>
+          <li>GMB &amp; SEO setup</li>
+        </ul>
+        <a href="#cta" class="price-btn">Get Started →</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-phase">Operations</div>
+        <div class="price-name">Custom AI Workflow</div>
+        <div class="price-from">From</div>
+        <div class="price-amt">₹24,999</div>
+        <div class="price-per">Setup · Or ₹7,999/month ongoing</div>
+        <ul class="price-list">
+          <li>End-to-end automation for Hotel/Travel</li>
+          <li>Custom AI CRM (Not a template)</li>
+          <li>Automated Vouchers &amp; Invoicing</li>
+          <li>Full staff training included</li>
+        </ul>
+        <a href="#cta" class="price-btn">Automate my business →</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-phase">Revenue</div>
+        <div class="price-name">Closebot SaaS</div>
+        <div class="price-from">From</div>
+        <div class="price-amt">₹2,999</div>
+        <div class="price-per">Per month · AI trained on your data</div>
+        <ul class="price-list">
+          <li>Meta Ads &amp; Google ROI tracking</li>
+          <li>AI lead scoring on WhatsApp</li>
+          <li>Team routing &amp; agent handoffs</li>
+          <li>In-chat payment processing</li>
+        </ul>
+        <a href="#cta" class="price-btn">Deploy Closebot →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="z1" id="cta" style="background:var(--bg);padding:96px 60px;">
+  <div class="wrap">
+    <div class="cta-grid">
+      <div>
+        <h2 class="cta-h">Stop guessing where the leak is.<br /><span class="accent">Let's find it in 20 minutes.</span></h2>
+        <p class="cta-sub" style="margin-top:16px;">We don't do aggressive sales pitches. We do a technical revenue audit based on our experience building Micro-SaaS and operations for Indian SMBs. If we can't fix it, we'll tell you who can.</p>
+      </div>
+      <div class="cta-panel">
+        <div class="cta-panel-lbl">What is your biggest bottleneck?</div>
+        <div class="cta-opts">
+          <div class="cta-opt">
+            <div class="cta-opt-ico">🚀</div>
+            <div>
+              <div class="cta-opt-title">Meta Ads ROI &amp; WhatsApp Leaks</div>
+              <div class="cta-opt-desc">I need Closebot to track and score my ad leads.</div>
+            </div>
+          </div>
+          <div class="cta-opt">
+            <div class="cta-opt-ico">🏗️</div>
+            <div>
+              <div class="cta-opt-title">3D Visuals &amp; Website Conversion</div>
+              <div class="cta-opt-desc">I need better digital assets to close high-ticket clients.</div>
+            </div>
+          </div>
+          <div class="cta-opt">
+            <div class="cta-opt-ico">⚙️</div>
+            <div>
+              <div class="cta-opt-title">Manual Operations (CRM/Billing)</div>
+              <div class="cta-opt-desc">I need to automate my daily workflows.</div>
+            </div>
+          </div>
+        </div>
+        <a href="mailto:hello@hostbolt.in?subject=Technical Revenue Audit" class="cta-main">Book my free 20-minute audit →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo">
+          <img src="logo (bg).png" alt="Hostbolt Logo">
+        </div>
+        <p class="ft-tagline">Building the tech layer for Indian SMBs. From 3D PropTech to AI automation and WhatsApp revenue intelligence.</p>
+        <div class="ft-entity">RIVONIC SOLUTIONS LLP · DPIIT · MSME · GST</div>
+      </div>
+      <div>
+        <div class="ft-col-h">Products &amp; Solutions</div>
+        <ul class="ft-links">
+          <li><a href="#how">Supersplat 3D Engine</a></li>
+          <li><a href="#closebot">Closebot (Micro-SaaS)</a></li>
+          <li><a href="#how">Custom AI CRM</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Industries</div>
+        <ul class="ft-links">
+          <li><a href="#proof">Real Estate &amp; Design</a></li>
+          <li><a href="#proof">Hotels &amp; Hospitality</a></li>
+          <li><a href="#proof">Travel &amp; Tourism</a></li>
+          <li><a href="#proof">B2B Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-h">Connect</div>
+        <ul class="ft-links">
+          <li><a href="mailto:hello@hostbolt.in">hello@hostbolt.in</a></li>
+          <li><a href="https://closebot.hostbolt.in">closebot.hostbolt.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2026 Rivonic Solutions LLP. Hostbolt and Closebot are products of Rivonic Solutions LLP. All rights reserved.</div>
+      <div class="ft-badges">
+        <span class="ft-badge">DPIIT</span>
+        <span class="ft-badge">MSME</span>
+        <span class="ft-badge">GST</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rev').forEach(el => io.observe(el));
+
+  document.querySelectorAll('.cta-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('.cta-opt').forEach(o => {
+        o.style.borderColor = '';
+        o.style.background = 'var(--bg)';
+      });
+      opt.style.borderColor = 'var(--primary)';
+      opt.style.background = 'var(--p-s)';
+    });
+  });
+</script>
+
+</body>
+</html>

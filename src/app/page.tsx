@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   Zap,
@@ -530,6 +531,7 @@ export default function LandingPage() {
                 </div>
 
               </div>
+              <p className="text-center text-xs text-slate-400 mt-6 italic">Illustrative example — not actual client data</p>
             </div>
 
           </div>
@@ -547,16 +549,16 @@ export default function LandingPage() {
               </div>
               <div className="flex gap-8 md:justify-end flex-wrap">
                 <div>
-                  <div className="text-4xl font-black text-blue-600 tracking-tight">12+</div>
-                  <div className="text-sm font-semibold text-slate-500 mt-1">Clients onboarded</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-black text-blue-600 tracking-tight">7</div>
-                  <div className="text-sm font-semibold text-slate-500 mt-1">Live & active</div>
-                </div>
-                <div>
                   <div className="text-4xl font-black text-blue-600 tracking-tight">4</div>
                   <div className="text-sm font-semibold text-slate-500 mt-1">Industries Transformed</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-black text-blue-600 tracking-tight">North India</div>
+                  <div className="text-sm font-semibold text-slate-500 mt-1">Region Served</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-black text-blue-600 tracking-tight">100%</div>
+                  <div className="text-sm font-semibold text-slate-500 mt-1">Founder-built, founder-run</div>
                 </div>
               </div>
             </div>
@@ -713,7 +715,10 @@ export default function LandingPage() {
                 <h3 className="text-2xl font-bold text-slate-900 mb-6">Closebot SaaS</h3>
                 <div className="text-sm font-semibold text-slate-500 mb-1">From</div>
                 <div className="text-5xl font-black text-slate-900 mb-2 tracking-tight">₹2,999</div>
-                <p className="text-sm text-slate-500 mb-8 font-medium">Per month · AI trained on your data</p>
+                <p className="text-sm text-slate-500 mb-8 font-medium">
+                  Per month · AI trained on your data
+                  <span className="block mt-2 text-xs text-blue-600 bg-blue-50 px-3 py-2 rounded-lg border border-blue-100">[TODO: specify — e.g. up to X leads/month, 1 WhatsApp number, X team seats]</span>
+                </p>
                 
                 <ul className="space-y-4 mb-10 flex-1">
                   <li className="flex items-start gap-3 text-sm text-slate-700 font-medium"><CheckCircle2 className="w-5 h-5 text-blue-600 shrink-0" /> Meta Ads & Google ROI tracking</li>
@@ -729,6 +734,43 @@ export default function LandingPage() {
               </motion.div>
             </div>
             
+          </div>
+        </section>
+
+        {/* ─── COMMON QUESTIONS (FAQ) ─── */}
+        <section id="faq" className="py-24 bg-white">
+          <div className="max-w-4xl mx-auto px-6 lg:px-12">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Common Questions
+              </h2>
+            </div>
+            <Accordion className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-lg font-bold text-slate-900">Do I need a WhatsApp Business API account for Closebot to work?</AccordionTrigger>
+                <AccordionContent className="text-slate-600 font-medium leading-relaxed mt-2">
+                  [ANSWER NEEDED: clarify API account requirement]
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-lg font-bold text-slate-900">Is there any risk of my WhatsApp number getting banned?</AccordionTrigger>
+                <AccordionContent className="text-slate-600 font-medium leading-relaxed mt-2">
+                  [ANSWER NEEDED: explain compliance and ban risks]
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="text-lg font-bold text-slate-900">Who has access to my customer data and how is it stored?</AccordionTrigger>
+                <AccordionContent className="text-slate-600 font-medium leading-relaxed mt-2">
+                  [ANSWER NEEDED: detail data privacy policy]
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-4">
+                <AccordionTrigger className="text-lg font-bold text-slate-900">What payment gateway processes the in-chat payment links?</AccordionTrigger>
+                <AccordionContent className="text-slate-600 font-medium leading-relaxed mt-2">
+                  [ANSWER NEEDED: specify supported gateways]
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </section>
 
@@ -751,9 +793,9 @@ export default function LandingPage() {
               
               <div className="space-y-3 mb-8">
                 {[
-                  { icon: "🚀", title: "Meta Ads ROI & WhatsApp Leaks", desc: "I need Closebot to track and score my ad leads." },
-                  { icon: "🏗️", title: "3D Visuals & Website Conversion", desc: "I need better digital assets to close high-ticket clients." },
-                  { icon: "⚙️", title: "Manual Operations (CRM/Billing)", desc: "I need to automate my daily workflows." }
+                  { icon: "🚀", title: "Meta Ads ROI & WhatsApp Leaks", desc: "I need Closebot to track and score my ad leads.", waMsg: "Hi, I need Closebot to track and score my ad leads." },
+                  { icon: "🏗️", title: "3D Visuals & Website Conversion", desc: "I need better digital assets to close high-ticket clients.", waMsg: "Hi, I need better digital assets to close high-ticket clients." },
+                  { icon: "⚙️", title: "Manual Operations (CRM/Billing)", desc: "I need to automate my daily workflows.", waMsg: "Hi, I need to automate my daily workflows." }
                 ].map((opt, idx) => (
                   <div 
                     key={idx} 
@@ -769,7 +811,12 @@ export default function LandingPage() {
                 ))}
               </div>
 
-              <a href="mailto:hello@hostbolt.in?subject=Technical Revenue Audit" className="block w-full">
+              {/* TODO: Replace 91XXXXXXXXXX with actual WhatsApp Business number */}
+              <a 
+                href={`https://wa.me/91XXXXXXXXXX?text=${activeCtaOpt === 0 ? '%40Hi%2C%20I%20need%20Closebot%20to%20track%20and%20score%20my%20ad%20leads.' : activeCtaOpt === 1 ? '%40Hi%2C%20I%20need%20better%20digital%20assets%20to%20close%20high-ticket%20clients.' : '%40Hi%2C%20I%20need%20to%20automate%20my%20daily%20workflows.'}`.replace('%40', '')} 
+                target="_blank" rel="noopener noreferrer" 
+                className="block w-full"
+              >
                 <Button className="w-full h-14 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-blue-600/30 transition-all duration-300">
                   Book my free 20-minute audit →
                 </Button>
