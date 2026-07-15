@@ -17,7 +17,7 @@ export function Navbar() {
             <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center">
               <Zap className="w-4 h-4 text-white fill-white" />
             </div>
-            Closebot
+            Chatmagnet AI
           </Link>
           
           <div className="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600 ml-4">

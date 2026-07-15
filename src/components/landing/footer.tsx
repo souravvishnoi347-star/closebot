@@ -12,10 +12,10 @@ export function Footer() {
               <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
                 <Zap className="w-5 h-5 text-white fill-white" />
               </div>
-              Closebot
+              Chatmagnet AI
             </div>
-            <a href="mailto:hello@closebot.io" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors block mb-6">
-              hello@closebot.io
+            <a href="mailto:hello@chatmagnet.io" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors block mb-6">
+              hello@chatmagnet.io
             </a>
             
             <div className="flex items-center gap-4">
@@ -65,7 +65,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-xs text-slate-400 font-medium">
-            © 2026 Rivonic Solutions. Closebot is a product of Rivonic Solutions. All rights reserved.
+            © 2026 Rivonic Solutions. Chatmagnet AI is a product of Rivonic Solutions. All rights reserved.
           </div>
           <div className="flex gap-3">
             <span className="text-[10px] font-bold tracking-widest text-slate-400 uppercase border border-slate-200 px-3 py-1 rounded">DPIIT</span>

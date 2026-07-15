@@ -288,7 +288,7 @@ export default function PricingPage() {
                   </div>
                   <div className="bg-slate-900 text-white font-bold py-3 px-6 rounded-full inline-flex items-center gap-2 z-10 shadow-lg hover:scale-105 transition-transform cursor-default">
                     <Zap className="w-4 h-4 text-blue-400" />
-                    Connect Closebot
+                    Connect Chatmagnet AI
                   </div>
                 </div>
               </div>
@@ -325,8 +325,8 @@ export default function PricingPage() {
                         <Zap className="w-4 h-4 text-blue-600" />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-slate-900 mb-1">Welcome to Closebot</div>
-                        <div className="text-[10px] leading-relaxed text-slate-500">Thanks for using Closebot. Let&apos;s jump to make some profit!</div>
+                        <div className="text-sm font-bold text-slate-900 mb-1">Welcome to Chatmagnet AI</div>
+                        <div className="text-[10px] leading-relaxed text-slate-500">Thanks for using Chatmagnet AI. Let&apos;s jump to make some profit!</div>
                       </div>
                     </div>
                   </div>

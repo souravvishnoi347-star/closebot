@@ -97,11 +97,11 @@ export default function SignupPage() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
               <MessageSquare className="h-4 w-4 text-primary-foreground" />
             </div>
-            Closebot
+            Chatmagnet AI
           </Link>
           <h1 className="text-3xl font-semibold tracking-tight text-foreground mb-2">Create account</h1>
           <p className="text-muted-foreground text-sm">
-            Get started with Closebot in seconds.
+            Get started with Chatmagnet AI in seconds.
           </p>
         </div>
 
@@ -253,7 +253,7 @@ export default function SignupPage() {
         <div className="relative z-10 w-full max-w-lg px-12 text-white">
           <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm font-medium text-zinc-300 backdrop-blur-md">
             <span className="flex h-2 w-2 rounded-full bg-emerald-500"></span>
-            Closebot is now open for early access
+            Chatmagnet AI is now open for early access
           </div>
           <h2 className="text-4xl font-bold tracking-tight mb-6 leading-tight">
             Supercharge your WhatsApp sales today.

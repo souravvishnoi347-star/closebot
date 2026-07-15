@@ -25,7 +25,7 @@ export type ThemeId = (typeof THEME_IDS)[number];
 
 export const DEFAULT_THEME: ThemeId = "violet";
 
-export const STORAGE_KEY = "closebot.theme";
+export const STORAGE_KEY = "chatmagnet.theme";
 
 export interface ThemeMeta {
   id: ThemeId;

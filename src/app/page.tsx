@@ -106,7 +106,7 @@ export default function LandingPage() {
               </motion.h1>
               
               <motion.p variants={FADE_UP_ANIMATION_VARIANTS} className="text-lg text-slate-500 mb-10 leading-relaxed max-w-2xl font-medium">
-                Closebot automatically captures Meta Ad leads on WhatsApp, scores them via AI, and routes them directly to your team. 
+                Chatmagnet AI automatically captures Meta Ad leads on WhatsApp, scores them via AI, and routes them directly to your team. 
                 Streamlining every step of your sales process to stop revenue leaks.
               </motion.p>
               
@@ -275,10 +275,10 @@ export default function LandingPage() {
                 Power Pack
               </motion.div>
               <motion.h2 variants={FADE_UP_ANIMATION_VARIANTS} className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
-                Why businesses choose Closebot
+                Why businesses choose Chatmagnet AI
               </motion.h2>
               <motion.p variants={FADE_UP_ANIMATION_VARIANTS} className="text-lg text-slate-500 max-w-2xl font-medium">
-                Businesses choose Closebot because it simplifies the complexity of sales management on WhatsApp.
+                Businesses choose Chatmagnet AI because it simplifies the complexity of sales management on WhatsApp.
               </motion.p>
             </motion.div>
 
@@ -439,7 +439,7 @@ export default function LandingPage() {
               </div>
               
               <h2 className="text-4xl md:text-5xl font-medium mb-6 tracking-tight">
-                What's inside Closebot?
+                What's inside Chatmagnet AI?
               </h2>
               
               <p className="text-lg text-slate-400 max-w-2xl font-medium">
@@ -500,7 +500,7 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-slate-50">No-Code Webhooks</h3>
                 <p className="text-slate-400 text-sm font-medium leading-relaxed">
-                  Connect Closebot to Zapier, Make, or any custom software with our simple and secure webhooks.
+                  Connect Chatmagnet AI to Zapier, Make, or any custom software with our simple and secure webhooks.
                 </p>
               </div>
 
@@ -519,17 +519,17 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ─── CLOSEBOT DEEP DIVE ─── */}
-        <section id="closebot" className="py-24 bg-white border-y border-slate-200">
+        {/* ─── CHATMAGNET AI DEEP DIVE ─── */}
+        <section id="chatmagnet" className="py-24 bg-white border-y border-slate-200">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             <div>
               <div className="flex items-center gap-3 text-emerald-600 text-xs font-bold tracking-widest uppercase mb-6">
                 <span className="w-6 h-[1px] bg-emerald-600 block"></span>
-                Our Proprietary SaaS — Closebot
+                Our Proprietary SaaS — Chatmagnet AI
               </div>
               <h2 className="text-3xl md:text-4xl font-medium text-slate-900 tracking-tight mb-6">Built because standard tools couldn't handle our own Meta Ad volumes.</h2>
-              <p className="text-lg text-slate-600 mb-10">Closebot is not a basic chatbot. It's a revenue intelligence layer that sits behind your WhatsApp. We built it to score every lead from Meta/Google, route it, and secure payments instantly.</p>
+              <p className="text-lg text-slate-600 mb-10">Chatmagnet AI is not a basic chatbot. It's a revenue intelligence layer that sits behind your WhatsApp. We built it to score every lead from Meta/Google, route it, and secure payments instantly.</p>
               
               <div className="space-y-6">
                 <div className="flex gap-4 p-5 bg-slate-50 border border-slate-200 rounded-2xl">
@@ -562,11 +562,11 @@ export default function LandingPage() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
-                {/* Without Closebot */}
+                {/* Without Chatmagnet AI */}
                 <div className="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
                   <div className="bg-white border-b border-slate-200 p-3 flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-slate-300 shrink-0"></div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-slate-500">Without Closebot</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-slate-500">Without Chatmagnet AI</div>
                   </div>
                   <div className="p-4 space-y-3">
                     <div className="bg-white border border-slate-200 p-3 rounded-xl shadow-sm">
@@ -593,11 +593,11 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                {/* With Closebot */}
+                {/* With Chatmagnet AI */}
                 <div className="bg-slate-50 border border-emerald-200 rounded-2xl overflow-hidden shadow-lg shadow-emerald-900/5 relative">
                   <div className="bg-white border-b border-slate-200 p-3 flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-emerald-500 shrink-0 animate-pulse"></div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-emerald-600">With Closebot</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-emerald-600">With Chatmagnet AI</div>
                   </div>
                   <div className="p-4 space-y-3">
                     
@@ -664,7 +664,7 @@ export default function LandingPage() {
                 <Accordion className="w-full space-y-4">
                   <AccordionItem value="item-1" className="border border-slate-200 rounded-2xl px-6 bg-white shadow-sm">
                     <AccordionTrigger className="text-lg font-bold text-slate-900 hover:no-underline py-5">
-                      Is my data safe on Closebot?
+                      Is my data safe on Chatmagnet AI?
                     </AccordionTrigger>
                     <AccordionContent className="text-slate-500 font-medium leading-relaxed pb-5 pt-0 text-base">
                       Yes. We use industry-grade encryption, secure servers, and role-based access controls to protect your data at all times.
@@ -685,7 +685,7 @@ export default function LandingPage() {
                       Does it work with my CRM?
                     </AccordionTrigger>
                     <AccordionContent className="text-slate-500 font-medium leading-relaxed pb-5 pt-0 text-base">
-                      Yes. Closebot supports no-code webhooks, allowing seamless integration with Zapier, Make, and almost any custom software or CRM you currently use.
+                      Yes. Chatmagnet AI supports no-code webhooks, allowing seamless integration with Zapier, Make, and almost any custom software or CRM you currently use.
                     </AccordionContent>
                   </AccordionItem>
 
@@ -712,7 +712,7 @@ export default function LandingPage() {
                       Is there a risk of my WhatsApp number getting banned?
                     </AccordionTrigger>
                     <AccordionContent className="text-slate-500 font-medium leading-relaxed pb-5 pt-0 text-base">
-                      No. Since Closebot operates purely on the official Meta Cloud API, your number is 100% safe from the bans that usually plague unofficial WhatsApp extensions.
+                      No. Since Chatmagnet AI operates purely on the official Meta Cloud API, your number is 100% safe from the bans that usually plague unofficial WhatsApp extensions.
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
@@ -751,7 +751,7 @@ export default function LandingPage() {
               
               <div className="space-y-4 mb-8">
                 {[
-                  { icon: <MessageSquare className="w-5 h-5" />, title: "Meta Ads ROI & WhatsApp Leaks", desc: "I need Closebot to track and score my ad leads.", waMsg: "Hi, I need Closebot to track and score my ad leads." },
+                  { icon: <MessageSquare className="w-5 h-5" />, title: "Meta Ads ROI & WhatsApp Leaks", desc: "I need Chatmagnet AI to track and score my ad leads.", waMsg: "Hi, I need Chatmagnet AI to track and score my ad leads." },
                   { icon: <Bot className="w-5 h-5" />, title: "Automating Sales Follow-ups", desc: "My team forgets to follow up with hot leads.", waMsg: "Hi, my team forgets to follow up with leads, I need automation." },
                   { icon: <Zap className="w-5 h-5" />, title: "CRM & Payment Integration", desc: "I need to collect payments directly inside WhatsApp.", waMsg: "Hi, I need to collect payments directly inside WhatsApp." }
                 ].map((opt, idx) => (

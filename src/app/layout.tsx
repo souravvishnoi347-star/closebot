@@ -13,8 +13,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Closebot",
-    template: "%s — Closebot",
+    default: "Chatmagnet AI",
+    template: "%s — Chatmagnet AI",
   },
   description: "High-end SaaS CRM platform.",
   robots: {

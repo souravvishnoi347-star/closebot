@@ -201,7 +201,7 @@ export default function FeaturesPage() {
                     <div className="w-64 bg-white rounded-xl shadow-sm border border-slate-100 p-6 flex flex-col mr-6">
                       <div className="flex items-center gap-3 mb-8">
                         <div className="w-8 h-8 bg-blue-600 rounded-lg"></div>
-                        <div className="font-bold text-slate-900">Closebot</div>
+                        <div className="font-bold text-slate-900">Chatmagnet AI</div>
                       </div>
                       <div className="space-y-4">
                         <div className="h-8 bg-slate-100 rounded flex items-center px-3"><div className="w-2 h-2 rounded-full bg-blue-500 mr-3"></div><div className="w-16 h-2 bg-slate-200 rounded"></div></div>
@@ -397,7 +397,7 @@ export default function FeaturesPage() {
             </h2>
             
             <p className="text-slate-400 font-medium text-lg max-w-2xl mx-auto text-center mb-10">
-              Businesses choose Closebot because it seamlessly connects WhatsApp with your entire sales ecosystem.
+              Businesses choose Chatmagnet AI because it seamlessly connects WhatsApp with your entire sales ecosystem.
             </p>
             
             <Link href="/integrations" className="relative group mb-20 block">

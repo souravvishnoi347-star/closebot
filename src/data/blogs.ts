@@ -4,7 +4,7 @@ export const blogs = [
     category: "PROBLEM-SOLVING",
     title: "Stop Managing Leads in Excel Spreadsheets: The Smart Way to Route WhatsApp Leads",
     excerpt: "Washing out messy spreadsheets and manual chat routing is essential for growth. Discover how a dedicated WhatsApp CRM can automate your sales pipeline and stop leads from falling through the cracks.",
-    author: "Closebot Team",
+    author: "Chatmagnet AI Team",
     date: "August 4, 2026",
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop",
     content: `
@@ -15,7 +15,7 @@ export const blogs = [
       <br/>
       
       <h2>How to Distribute WhatsApp Leads to Sales Team</h2>
-      <p>Next comes lead distribution. Creating a seamless experience for your agents is just as important as the customer experience. A good CRM can increase engagement, retention, and overall satisfaction by automating how leads are assigned. With Closebot, you can utilize <strong>WhatsApp chat routing round robin India</strong>. This ensures that the moment a lead comes in from a Meta ad or organic search, it is instantly distributed to the next available agent without human intervention.</p>
+      <p>Next comes lead distribution. Creating a seamless experience for your agents is just as important as the customer experience. A good CRM can increase engagement, retention, and overall satisfaction by automating how leads are assigned. With Chatmagnet AI, you can utilize <strong>WhatsApp chat routing round robin India</strong>. This ensures that the moment a lead comes in from a Meta ad or organic search, it is instantly distributed to the next available agent without human intervention.</p>
       <br/>
 
       <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop" alt="Team analyzing data" />
@@ -26,7 +26,7 @@ export const blogs = [
       <br/>
 
       <h2>The Bottom Line</h2>
-      <p>Lead management isn't just about storing numbers—it's about delivering value, solving problems, and creating experiences people love. By upgrading to a dedicated lead management software for Indian SMBs like Closebot, you eliminate the messy spreadsheet problem forever.</p>
+      <p>Lead management isn't just about storing numbers—it's about delivering value, solving problems, and creating experiences people love. By upgrading to a dedicated lead management software for Indian SMBs like Chatmagnet AI, you eliminate the messy spreadsheet problem forever.</p>
     `
   },
   {
@@ -34,7 +34,7 @@ export const blogs = [
     category: "USE-CASE",
     title: "How to Manage Real Estate Leads on WhatsApp: Best CRM for Agents in India",
     excerpt: "Learn how to manage real estate leads on WhatsApp efficiently. Discover why a dedicated WhatsApp CRM is the highest converting tool for real estate agents in India.",
-    author: "Closebot Team",
+    author: "Chatmagnet AI Team",
     date: "August 6, 2026",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
     content: `
@@ -56,7 +56,7 @@ export const blogs = [
       <br/>
 
       <h2>The Bottom Line</h2>
-      <p>Investing in smart, user-centered lead management software pays off in the long run. By adopting Closebot, real estate agents can automate follow-ups and close more deals effortlessly.</p>
+      <p>Investing in smart, user-centered lead management software pays off in the long run. By adopting Chatmagnet AI, real estate agents can automate follow-ups and close more deals effortlessly.</p>
     `
   },
   {
@@ -64,7 +64,7 @@ export const blogs = [
     category: "PROBLEM-SOLVING",
     title: "How to Track Meta Ads ROI on WhatsApp Instantly",
     excerpt: "Stop guessing your marketing returns. Learn how to track Meta Ads ROI on WhatsApp and optimize your ad spend using real-time data analytics and automated tracking.",
-    author: "Closebot Team",
+    author: "Chatmagnet AI Team",
     date: "August 10, 2026",
     image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1000&auto=format&fit=crop",
     content: `
@@ -75,14 +75,14 @@ export const blogs = [
       <br/>
       
       <h2>Real-Time Data Analytics is a Growth Catalyst</h2>
-      <p>With an advanced WhatsApp CRM like Closebot, you can capture UTM parameters and Meta ad IDs the moment the lead sends their first message. This data is tied to their profile in your CRM. When the deal is finally closed, the revenue is automatically attributed to the exact ad campaign that brought them in.</p>
+      <p>With an advanced WhatsApp CRM like Chatmagnet AI, you can capture UTM parameters and Meta ad IDs the moment the lead sends their first message. This data is tied to their profile in your CRM. When the deal is finally closed, the revenue is automatically attributed to the exact ad campaign that brought them in.</p>
       <br/>
 
       <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="Analytics Dashboard" />
       <br/>
 
       <h2>Send Razorpay Payment Links on WhatsApp Automatically</h2>
-      <p>To truly close the loop on ROI, you need to collect payments seamlessly. Closebot allows you to send Razorpay payment links on WhatsApp automatically once a customer agrees to buy. The moment the payment succeeds, the ROI dashboard updates in real-time.</p>
+      <p>To truly close the loop on ROI, you need to collect payments seamlessly. Chatmagnet AI allows you to send Razorpay payment links on WhatsApp automatically once a customer agrees to buy. The moment the payment succeeds, the ROI dashboard updates in real-time.</p>
       <br/>
 
       <h2>The Bottom Line</h2>
@@ -93,8 +93,8 @@ export const blogs = [
     slug: "wati-alternatives-small-business-india",
     category: "COMPETITORS",
     title: "Top WATI Alternatives for Small Business India in 2026",
-    excerpt: "Looking for an affordable WhatsApp CRM for Indian startups? Discover why Closebot is emerging as one of the best WATI alternatives for small businesses in India.",
-    author: "Closebot Team",
+    excerpt: "Looking for an affordable WhatsApp CRM for Indian startups? Discover why Chatmagnet AI is emerging as one of the best WATI alternatives for small businesses in India.",
+    author: "Chatmagnet AI Team",
     date: "August 12, 2026",
     image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop",
     content: `
@@ -105,18 +105,18 @@ export const blogs = [
       <br/>
       
       <h2>Affordable WhatsApp CRM for Indian Startups</h2>
-      <p>Closebot is designed specifically as an affordable WhatsApp CRM for Indian startups. It provides all the enterprise-grade features without the enterprise price tag. From <strong>WhatsApp shared team inbox with Kanban board</strong> to advanced automation, everything is included out of the box.</p>
+      <p>Chatmagnet AI is designed specifically as an affordable WhatsApp CRM for Indian startups. It provides all the enterprise-grade features without the enterprise price tag. From <strong>WhatsApp shared team inbox with Kanban board</strong> to advanced automation, everything is included out of the box.</p>
       <br/>
 
       <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" alt="Startups Team" />
       <br/>
 
       <h2>Features That Matter</h2>
-      <p>Instead of bloated features, Closebot focuses on high-conversion tools. Need to distribute leads fairly? Use our <strong>WhatsApp chat routing round robin India</strong> feature. Need to qualify leads? Our automated lead scoring does it instantly.</p>
+      <p>Instead of bloated features, Chatmagnet AI focuses on high-conversion tools. Need to distribute leads fairly? Use our <strong>WhatsApp chat routing round robin India</strong> feature. Need to qualify leads? Our automated lead scoring does it instantly.</p>
       <br/>
 
       <h2>The Bottom Line</h2>
-      <p>Choosing the right tech stack determines your business's performance and scalability. If you want a cost-effective, powerful, and easy-to-use platform, Closebot is the ultimate WATI alternative.</p>
+      <p>Choosing the right tech stack determines your business's performance and scalability. If you want a cost-effective, powerful, and easy-to-use platform, Chatmagnet AI is the ultimate WATI alternative.</p>
     `
   },
   {
@@ -124,7 +124,7 @@ export const blogs = [
     category: "FEATURE",
     title: "WhatsApp Shared Team Inbox with Kanban Board Explained",
     excerpt: "Discover how a WhatsApp shared team inbox with a Kanban board can revolutionize your lead management software and help sales teams close more deals.",
-    author: "Closebot Team",
+    author: "Chatmagnet AI Team",
     date: "August 15, 2026",
     image: "https://images.unsplash.com/photo-1542744094-24638ea0b3b5?q=80&w=1000&auto=format&fit=crop",
     content: `
@@ -135,7 +135,7 @@ export const blogs = [
       <br/>
       
       <h2>The Power of the Kanban Board</h2>
-      <p>Integrating a visual Kanban board directly with your WhatsApp chats changes everything. You can visually drag and drop contacts from 'New Lead' to 'Follow-up' to 'Closed Won'. This makes Closebot the ultimate lead management software for Indian SMBs.</p>
+      <p>Integrating a visual Kanban board directly with your WhatsApp chats changes everything. You can visually drag and drop contacts from 'New Lead' to 'Follow-up' to 'Closed Won'. This makes Chatmagnet AI the ultimate lead management software for Indian SMBs.</p>
       <br/>
 
       <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" alt="Kanban Board Concept" />
@@ -154,7 +154,7 @@ export const blogs = [
     category: "USE-CASE",
     title: "WhatsApp Automation for Travel Agency: Boost Bookings 24/7",
     excerpt: "Learn how WhatsApp automation for travel agency operations can handle inquiries, send itineraries, and collect payments automatically.",
-    author: "Closebot Team",
+    author: "Chatmagnet AI Team",
     date: "August 18, 2026",
     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop",
     content: `
@@ -165,7 +165,7 @@ export const blogs = [
       <br/>
       
       <h2>Seamless Payments and Itineraries</h2>
-      <p>Once a package is customized and agreed upon, the friction of payment often delays the booking. With Closebot, you can <strong>send Razorpay payment links on WhatsApp automatically</strong>. The customer clicks, pays via UPI or card, and instantly receives their booking confirmation and PDF itinerary right in the chat.</p>
+      <p>Once a package is customized and agreed upon, the friction of payment often delays the booking. With Chatmagnet AI, you can <strong>send Razorpay payment links on WhatsApp automatically</strong>. The customer clicks, pays via UPI or card, and instantly receives their booking confirmation and PDF itinerary right in the chat.</p>
       <br/>
 
       <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1000&auto=format&fit=crop" alt="Travel and Booking" />

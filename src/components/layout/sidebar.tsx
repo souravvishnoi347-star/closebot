@@ -126,7 +126,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
           <Link href="/dashboard" className="flex items-center gap-2">
             <Zap className="h-6 w-6 text-blue-600 fill-blue-600" />
             <span className="text-xl font-extrabold text-[#0b1c30] tracking-tight">
-              Closebot
+              Chatmagnet AI
             </span>
           </Link>
           <button

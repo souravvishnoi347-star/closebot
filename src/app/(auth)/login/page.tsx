@@ -55,7 +55,7 @@ function LoginForm() {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
             <MessageSquare className="h-4 w-4 text-primary-foreground" />
           </div>
-          Closebot
+          Chatmagnet AI
         </Link>
         <h1 className="text-3xl font-semibold tracking-tight text-foreground mb-2">Welcome back</h1>
         <p className="text-muted-foreground text-sm">
@@ -173,7 +173,7 @@ export default function LoginPage() {
             The smartest way to manage WhatsApp conversations.
           </h2>
           <p className="text-lg text-zinc-400 mb-8 leading-relaxed">
-            Closebot helps you convert leads, automate replies, and manage your entire sales pipeline directly from WhatsApp.
+            Chatmagnet AI helps you convert leads, automate replies, and manage your entire sales pipeline directly from WhatsApp.
           </p>
           
           <div className="flex items-center gap-4 text-sm font-medium text-zinc-300 bg-white/5 w-fit px-5 py-3 rounded-full border border-white/10 backdrop-blur-sm">
