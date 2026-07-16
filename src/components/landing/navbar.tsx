@@ -34,7 +34,7 @@ export function Navbar() {
               {/* Invisible bridge to prevent hover loss */}
               <div className="absolute top-full left-0 w-full h-4"></div>
               <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 w-40 bg-white border border-slate-100 rounded-xl shadow-lg shadow-slate-200/50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
-                <Link href="#" className="block px-4 py-2 hover:bg-slate-50 hover:text-blue-600 transition-colors">Case Studies</Link>
+                <Link href="/case-studies" className="block px-4 py-2 hover:bg-slate-50 hover:text-blue-600 transition-colors">Case Studies</Link>
                 <Link href="/blogs" className="block px-4 py-2 hover:bg-slate-50 hover:text-blue-600 transition-colors">Blogs</Link>
               </div>
             </div>
@@ -72,6 +72,7 @@ export function Navbar() {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full mt-2 bg-white/95 backdrop-blur-xl border border-slate-200/50 rounded-2xl shadow-xl shadow-slate-200/30 overflow-hidden flex flex-col py-4 px-4 animate-in fade-in slide-in-from-top-4 duration-200 z-50">
             <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-xl transition-colors">Our Story</Link>
+            <Link href="/case-studies" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-xl transition-colors">Case Studies</Link>
             <Link href="/integrations" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-xl transition-colors">Integrations</Link>
             <Link href="/features" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-xl transition-colors">Features</Link>
             <Link href="/pricing" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-xl transition-colors">Pricing</Link>
