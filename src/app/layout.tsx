@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import "./globals.css";
 import { ThemeProvider } from "@/hooks/use-theme";
 import { DEFAULT_THEME, STORAGE_KEY, THEME_IDS } from "@/lib/themes";
+import { WhatsAppWidget } from "@/components/landing/whatsapp-widget";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -13,16 +14,28 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Chatmagnet AI",
+    default: "Chatmagnet AI — WhatsApp CRM & Sales Automation",
     template: "%s — Chatmagnet AI",
   },
-  description: "High-end SaaS CRM platform.",
+  description: "Chatmagnet AI is a WhatsApp CRM that helps businesses capture leads from Meta Ads, automate replies with AI, manage sales pipelines, and close deals faster.",
+  keywords: ["WhatsApp CRM", "WhatsApp automation", "AI chatbot", "sales pipeline", "lead management", "Meta ads CRM", "WhatsApp business", "Chatmagnet AI"],
   robots: {
     index: true,
     follow: true,
   },
   icons: {
     icon: [{ url: "/icon" }],
+  },
+  openGraph: {
+    title: "Chatmagnet AI — WhatsApp CRM & Sales Automation",
+    description: "Capture leads, automate replies, and close deals faster with the smartest WhatsApp CRM.",
+    type: "website",
+    siteName: "Chatmagnet AI",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chatmagnet AI — WhatsApp CRM & Sales Automation",
+    description: "Capture leads, automate replies, and close deals faster with the smartest WhatsApp CRM.",
   },
   formatDetection: {
     email: false,
@@ -81,6 +94,7 @@ export default function RootLayout({
       <body className="min-h-full bg-background text-foreground font-sans">
         <ThemeProvider>
           {children}
+          <WhatsAppWidget />
           <Toaster
             theme="light"
             position="top-right"

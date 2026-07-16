@@ -21,7 +21,7 @@ export function Navbar() {
           </Link>
           
           <div className="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600 ml-4">
-            <Link href="/#about" className="hover:text-slate-900 transition-colors">Our Story</Link>
+            <Link href="/about" className="hover:text-slate-900 transition-colors">Our Story</Link>
             
             <div className="relative group">
               <button className="flex items-center gap-1 hover:text-slate-900 transition-colors">
