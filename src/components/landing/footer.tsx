@@ -6,6 +6,26 @@ export function Footer() {
     <footer className="bg-white py-16 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
+        {/* Global CTA Section */}
+        <div className="bg-slate-900 rounded-[2.5rem] p-10 md:p-14 mb-20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-900 to-slate-900"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+          
+          <div className="relative z-10 max-w-xl text-center md:text-left">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Ready to scale your sales?</h3>
+            <p className="text-slate-400 text-lg">Start your 3-day free trial today. Book a quick meeting with our team to get your account fully setup and onboarded.</p>
+          </div>
+          
+          <div className="relative z-10 shrink-0 w-full md:w-auto mt-4 md:mt-0">
+             <a href="https://calendar.app.google/X2JCTCkPaVpKnGgeA" target="_blank" rel="noopener noreferrer" className="relative group block w-full md:w-auto">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative bg-white group-hover:bg-blue-600 group-hover:text-white text-slate-900 font-bold px-8 py-4 rounded-full transition-all duration-300 shadow-lg text-center whitespace-nowrap">
+                  Book a Meeting for 3-Day Trial
+                </div>
+              </a>
+          </div>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 font-extrabold text-2xl tracking-tight text-slate-900 mb-6">
