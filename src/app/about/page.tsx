@@ -35,14 +35,10 @@ export default function AboutPage() {
             {/* Right Image */}
             <div className="flex-1 w-full max-w-xl">
               <div className="relative aspect-square md:aspect-[4/4] lg:aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl bg-slate-100 border border-slate-200/50">
-                {/* 
-                  TODO: Replace the src below with your actual image path.
-                  Upload your picture to the "public" folder in your project and name it "founder.jpg", 
-                  then change src="https://images.unsplash.com/..." to src="/founder.jpg"
-                */}
+                {/* Founder Image */}
                 <img 
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=1000&q=80" 
-                  alt="Founder"
+                  src="/founders.png" 
+                  alt="Founders"
                   className="w-full h-full object-cover"
                 />
               </div>
