@@ -33,13 +33,17 @@ export default function AboutPage() {
             </div>
 
             {/* Right Image */}
-            <div className="flex-1 w-full max-w-xl">
-              <div className="relative aspect-square md:aspect-[4/4] lg:aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl bg-slate-100 border border-slate-200/50">
-                {/* Founder Image */}
+            <div className="flex-1 w-full max-w-xl relative">
+              {/* Decorative background blobs */}
+              <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-60"></div>
+              <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-100 rounded-full blur-3xl opacity-60"></div>
+              
+              {/* Image Frame */}
+              <div className="relative z-10 aspect-[4/4] lg:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] border-[10px] border-white bg-slate-50 rotate-2 hover:rotate-0 transition-transform duration-500">
                 <img 
                   src="/founders.png" 
-                  alt="Founders"
-                  className="w-full h-full object-cover"
+                  alt="Founder"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
             </div>
