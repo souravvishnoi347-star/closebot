@@ -3,6 +3,7 @@
 import { Navbar } from '@/components/landing/navbar';
 import { Footer } from '@/components/landing/footer';
 import { Button } from '@/components/ui/button';
+import { Lightbulb, Leaf, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
 
 export default function AboutPage() {
@@ -47,6 +48,68 @@ export default function AboutPage() {
               </div>
             </div>
 
+          </div>
+        </section>
+
+        {/* Mission & Vision Section */}
+        <section className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
+          <div className="grid md:grid-cols-2 gap-16">
+            <div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">Our Mission</h2>
+              <p className="text-slate-500 leading-relaxed text-lg">
+                Our mission is to simplify and accelerate the sales process through smart automation, real-time insights, and intuitive tools. We aim to help sales teams close more deals with less effort on WhatsApp.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">Our Vision</h2>
+              <p className="text-slate-500 leading-relaxed text-lg">
+                Our Vision is to boost productivity and improve outcomes with seamless automation, clear insights, and user-friendly systems. We help sales teams build a smarter, more efficient future.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Core Values Section */}
+        <section className="bg-[#1C1C1E] py-24 md:py-32">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="text-center mb-16 md:mb-24">
+              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Our core values</h2>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Value 1 */}
+              <div className="bg-white rounded-[2rem] p-10 hover:shadow-xl transition-shadow">
+                <div className="text-[#E1306C] mb-8">
+                  <Lightbulb className="w-10 h-10" strokeWidth={2} />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Innovation</h3>
+                <p className="text-slate-500 leading-relaxed font-medium mt-12">
+                  Innovation is at the heart of everything we do at Chatmagnet AI. We're constantly pushing boundaries to build a smarter future for sales.
+                </p>
+              </div>
+
+              {/* Value 2 */}
+              <div className="bg-white rounded-[2rem] p-10 hover:shadow-xl transition-shadow">
+                <div className="text-[#E1306C] mb-8">
+                  <Leaf className="w-10 h-10" strokeWidth={2} />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Sustainability</h3>
+                <p className="text-slate-500 leading-relaxed font-medium mt-12">
+                  At Chatmagnet AI, we're committed to building a smarter future—not just in sales efficiency, but for long-term sustainable growth.
+                </p>
+              </div>
+
+              {/* Value 3 */}
+              <div className="bg-white rounded-[2rem] p-10 hover:shadow-xl transition-shadow">
+                <div className="text-[#E1306C] mb-8">
+                  <ShieldCheck className="w-10 h-10" strokeWidth={2} />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Integrity</h3>
+                <p className="text-slate-500 leading-relaxed font-medium mt-12">
+                  From concept to code, our agile process ensures smooth delivery with measurable outcomes, maintaining transparency and trust always.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
