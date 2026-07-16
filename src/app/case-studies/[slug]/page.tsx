@@ -6,11 +6,12 @@ import { Navbar } from "@/components/landing/navbar";
 import { Footer } from "@/components/landing/footer";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const study = caseStudies.find(s => s.slug === params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params;
+  const study = caseStudies.find(s => s.slug === resolvedParams.slug);
   
   if (!study) {
     return { title: "Not Found" };
@@ -22,8 +23,9 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function CaseStudyDetail({ params }: Props) {
-  const study = caseStudies.find(s => s.slug === params.slug);
+export default async function CaseStudyDetail({ params }: Props) {
+  const resolvedParams = await params;
+  const study = caseStudies.find(s => s.slug === resolvedParams.slug);
 
   if (!study) {
     notFound();
