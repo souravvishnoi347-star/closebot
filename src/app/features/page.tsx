@@ -5,7 +5,7 @@ import { Footer } from '@/components/landing/footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
-import { Zap, Share2, ShoppingBag, ShoppingCart, CreditCard, Cloud, Database, BarChart, Box, Cpu, FileText, Globe, Key } from 'lucide-react';
+import { Zap, Share2, ShoppingBag, ShoppingCart, CreditCard, Cloud, Database, BarChart, Box, Cpu, FileText, Globe, Key, Target, TrendingUp, Workflow, BrainCircuit, ShieldCheck, Users } from 'lucide-react';
 
 export default function FeaturesPage() {
   const [activeTab, setActiveTab] = useState(0);
@@ -443,6 +443,68 @@ export default function FeaturesPage() {
               </div>
             </div>
 
+          </div>
+        </section>
+
+        {/* Capabilities Grid Section */}
+        <section className="max-w-7xl mx-auto px-6 lg:px-12 py-28">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-medium text-slate-900 tracking-tight leading-tight mb-4">
+              Unlock limitless possibilities
+            </h2>
+            <p className="text-slate-500 font-medium text-lg max-w-xl mx-auto">
+              Automate your WhatsApp sales pipeline, manage leads effortlessly, and close deals faster with AI.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                icon: <Target className="w-7 h-7" />,
+                title: "Lead Scoring & Tracking",
+                desc: "Automatically score every incoming WhatsApp lead based on intent, source, and engagement to prioritize high-value prospects."
+              },
+              {
+                icon: <TrendingUp className="w-7 h-7" />,
+                title: "Revenue Analytics",
+                desc: "Track your team's WhatsApp-driven revenue, conversion rates, and pipeline velocity in a single real-time dashboard."
+              },
+              {
+                icon: <Workflow className="w-7 h-7" />,
+                title: "Visual Flow Builder",
+                desc: "Design no-code WhatsApp automation flows — from welcome sequences to cart recovery — with our drag-and-drop builder."
+              },
+              {
+                icon: <BrainCircuit className="w-7 h-7" />,
+                title: "AI Smart Replies",
+                desc: "Let AI handle routine queries, qualify leads, and schedule meetings automatically while your agents focus on closing."
+              },
+              {
+                icon: <Users className="w-7 h-7" />,
+                title: "Multi-Agent Inbox",
+                desc: "Assign WhatsApp conversations to specific team members with round-robin routing, tags, and internal notes."
+              },
+              {
+                icon: <ShieldCheck className="w-7 h-7" />,
+                title: "Role-Based Access",
+                desc: "Control who can view, reply, or manage conversations with granular permission levels for agents, managers, and admins."
+              }
+            ].map((feature, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="group bg-white border border-slate-200/80 rounded-2xl p-8 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/40 transition-all duration-400 cursor-default"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 group-hover:bg-blue-50 flex items-center justify-center text-slate-400 group-hover:text-blue-600 transition-colors duration-300 mb-6 border border-slate-100 group-hover:border-blue-100">
+                  {feature.icon}
+                </div>
+                <h4 className="text-lg font-bold text-slate-900 mb-3 tracking-tight">{feature.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed font-medium">{feature.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </section>
 
