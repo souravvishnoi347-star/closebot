@@ -39,7 +39,7 @@ export default function AboutPage() {
               <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-100 rounded-full blur-3xl opacity-60"></div>
               
               {/* Image Frame */}
-              <div className="relative z-10 aspect-[4/4] lg:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] border-[10px] border-white bg-slate-50 rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div className="relative z-10 aspect-[4/4] lg:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] border-[10px] border-white bg-slate-50 transition-transform duration-500">
                 <img 
                   src="/founders.png" 
                   alt="Founder"
