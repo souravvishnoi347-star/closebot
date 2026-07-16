@@ -721,6 +721,46 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* ─── FAQ SECTION ─── */}
+        <section className="py-24 bg-white">
+          <div className="max-w-4xl mx-auto px-6 lg:px-12">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-slate-900 tracking-tight mb-4">Frequently Asked Questions</h2>
+              <p className="text-lg text-slate-600">Everything you need to know about Chatmagnet AI and how it works.</p>
+            </div>
+            
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              <AccordionItem value="item-1" className="border border-slate-200 rounded-2xl px-6 bg-slate-50/50">
+                <AccordionTrigger className="text-left text-lg font-bold text-slate-900 hover:text-blue-600 py-6 hover:no-underline">Do I need the official WhatsApp Business API?</AccordionTrigger>
+                <AccordionContent className="text-slate-600 leading-relaxed pb-6 text-base">
+                  Yes! We help you get set up with the official WhatsApp Business API so you won't get banned. It takes less than 10 minutes to connect your existing number or a new one.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-2" className="border border-slate-200 rounded-2xl px-6 bg-slate-50/50">
+                <AccordionTrigger className="text-left text-lg font-bold text-slate-900 hover:text-blue-600 py-6 hover:no-underline">Can my whole team use the same WhatsApp number?</AccordionTrigger>
+                <AccordionContent className="text-slate-600 leading-relaxed pb-6 text-base">
+                  Absolutely. That's one of our core features. You can have 5, 10, or 50 agents all replying from the same official WhatsApp number through our shared inbox.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-3" className="border border-slate-200 rounded-2xl px-6 bg-slate-50/50">
+                <AccordionTrigger className="text-left text-lg font-bold text-slate-900 hover:text-blue-600 py-6 hover:no-underline">How does the AI chatbot work?</AccordionTrigger>
+                <AccordionContent className="text-slate-600 leading-relaxed pb-6 text-base">
+                  You can train the AI by uploading your PDFs, website links, or writing out FAQs. The bot will automatically answer common questions instantly 24/7, and seamlessly hand over to a human agent when needed.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-4" className="border border-slate-200 rounded-2xl px-6 bg-slate-50/50">
+                <AccordionTrigger className="text-left text-lg font-bold text-slate-900 hover:text-blue-600 py-6 hover:no-underline">Does it integrate with my existing tools?</AccordionTrigger>
+                <AccordionContent className="text-slate-600 leading-relaxed pb-6 text-base">
+                  Yes, we have 15+ native integrations including Zapier, Shopify, WooCommerce, HubSpot, and Google Sheets so you can automate workflows easily.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section>
+
         {/* ─── FINAL CTA ─── */}
         <section id="cta" className="py-24 md:py-32 bg-slate-50 border-t border-slate-200 relative">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
