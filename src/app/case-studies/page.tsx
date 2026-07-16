@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { caseStudies } from "@/lib/case-studies";
 import { Zap } from "lucide-react";
+import { Navbar } from "@/components/landing/navbar";
+import { Footer } from "@/components/landing/footer";
 
 export default function CaseStudiesPage() {
   return (
-    <div className="min-h-screen bg-[#FAFAFA] pt-32 pb-24">
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-[#FAFAFA] pt-32 pb-24">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-20 text-center">
         <h1 className="text-5xl md:text-7xl font-bold text-slate-900 tracking-tight mb-6">
@@ -73,5 +77,7 @@ export default function CaseStudiesPage() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }

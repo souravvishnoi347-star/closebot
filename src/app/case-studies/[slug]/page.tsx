@@ -2,6 +2,8 @@ import { notFound } from "next";
 import { caseStudies } from "@/lib/case-studies";
 import { Metadata } from "next";
 import { Zap } from "lucide-react";
+import { Navbar } from "@/components/landing/navbar";
+import { Footer } from "@/components/landing/footer";
 
 interface Props {
   params: { slug: string };
@@ -28,7 +30,9 @@ export default function CaseStudyDetail({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-white pt-32 pb-24">
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-white pt-32 pb-24">
       {/* Header Section */}
       <div className="max-w-4xl mx-auto px-6 lg:px-12 mb-16 text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-tight">
@@ -155,5 +159,7 @@ export default function CaseStudyDetail({ params }: Props) {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
