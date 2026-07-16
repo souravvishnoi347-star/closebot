@@ -1,4 +1,4 @@
-import { notFound } from "next";
+import { notFound } from "next/navigation";
 import { caseStudies } from "@/lib/case-studies";
 import { Metadata } from "next";
 import { Zap } from "lucide-react";
