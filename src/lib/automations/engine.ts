@@ -375,12 +375,41 @@ async function runStep(step: AutomationStep, args: ExecuteArgs): Promise<string>
       if (!args.contactId) throw new Error('assign_conversation needs a contact')
       let agentId = cfg.agent_id
       if (cfg.mode === 'round_robin') {
-        const { data: profiles } = await db
+        // Fetch all team members (admin + agents invited by admin)
+        const { data: teamProfiles } = await db
           .from('profiles')
-          .select('user_id')
-          .eq('user_id', args.automation.user_id)
-          .limit(1)
-        agentId = profiles?.[0]?.user_id
+          .select('id')
+          .or(`id.eq.${args.automation.user_id},invited_by.eq.${args.automation.user_id}`);
+        
+        if (teamProfiles && teamProfiles.length > 0) {
+          const agentIds = teamProfiles.map((p: any) => p.id);
+          
+          // To distribute equally, we find the agent with the fewest currently assigned open conversations
+          const { data: counts } = await db
+            .from('conversations')
+            .select('assigned_agent_id')
+            .in('assigned_agent_id', agentIds)
+            .eq('status', 'open');
+            
+          const agentCounts = agentIds.reduce((acc: any, id: string) => {
+            acc[id] = 0;
+            return acc;
+          }, {});
+          
+          if (counts) {
+            counts.forEach((c: any) => {
+              if (c.assigned_agent_id && agentCounts[c.assigned_agent_id] !== undefined) {
+                agentCounts[c.assigned_agent_id]++;
+              }
+            });
+          }
+          
+          // Sort agents by count (ascending) to pick the one with fewest assignments
+          agentIds.sort((a: string, b: string) => agentCounts[a] - agentCounts[b]);
+          agentId = agentIds[0];
+        } else {
+          agentId = args.automation.user_id; // Fallback to admin
+        }
       }
       if (!agentId) return 'no agent resolved'
       await db
@@ -475,7 +504,20 @@ async function resolveConversationId(args: ExecuteArgs): Promise<string> {
 }
 
 function triggerMatches(automation: Automation, ctx: AutomationContext | undefined): boolean {
+  if (automation.trigger_type === 'tag_added') {
+    const cfg = automation.trigger_config as { tag_id?: string }
+    if (!cfg?.tag_id || !ctx?.tag_id) return false
+    return cfg.tag_id === ctx.tag_id
+  }
+
+  if (automation.trigger_type === 'conversation_assigned') {
+    const cfg = automation.trigger_config as { agent_id?: string }
+    if (cfg?.agent_id && cfg.agent_id !== ctx?.agent_id) return false
+    return true
+  }
+
   if (automation.trigger_type !== 'keyword_match') return true
+
   const cfg = automation.trigger_config as KeywordMatchTriggerConfig
   if (!cfg?.keywords || cfg.keywords.length === 0) return false
   const text = (ctx?.message_text ?? '').toString()

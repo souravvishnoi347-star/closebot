@@ -113,7 +113,8 @@ export function isAutoAdvancing(node_type: string): boolean {
     node_type === "start" ||
     node_type === "send_message" ||
     node_type === "condition" ||
-    node_type === "set_tag"
+    node_type === "set_tag" ||
+    node_type === "http_fetch"
   );
 }
 
@@ -691,6 +692,52 @@ async function advanceFromNodeKey(
       currentKey = cfg.next_node_key;
       continue;
     }
+    if (node.node_type === "http_fetch") {
+      const cfg = node.config as any; // HttpFetchNodeConfig
+      try {
+        const url = interpolateVars(cfg.url, run.vars);
+        let bodyStr = undefined;
+        if (cfg.method === "POST" && cfg.body) {
+          bodyStr = interpolateVars(cfg.body, run.vars);
+        }
+
+        const res = await fetch(url, {
+          method: cfg.method,
+          headers: cfg.headers || {},
+          body: bodyStr,
+        });
+
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+        }
+
+        const json = await res.json().catch(() => ({}));
+
+        // Store result in vars
+        const updatedVars = { ...run.vars, [cfg.var_key]: json };
+        await db
+          .from("flow_runs")
+          .update({ vars: updatedVars })
+          .eq("id", run.id);
+        
+        // Mutate local run state so subsequent nodes in this same advance loop can use it
+        run.vars = updatedVars;
+
+        currentKey = cfg.success_next;
+        await logEvent(db, run.id, "node_entered", node.node_key, {
+          http_status: res.status,
+          advancing_to: currentKey,
+        });
+      } catch (err) {
+        currentKey = cfg.error_next;
+        await logEvent(db, run.id, "error", node.node_key, {
+          reason: "http_fetch_failed",
+          detail: err instanceof Error ? err.message : String(err),
+          advancing_to: currentKey,
+        });
+      }
+      continue;
+    }
     if (node.node_type === "send_buttons") {
       await sendButtonsAndSuspend(db, run, node);
       // Persist the new current_node_key via optimistic UPDATE.
@@ -895,7 +942,24 @@ async function handleReplyForActiveRun(
   ) {
     const cfg = currentNode.config as unknown as CollectInputNodeConfig;
     const captured = message.text.trim();
-    if (captured.length > 0 && cfg.var_key) {
+    
+    let isValid = captured.length > 0;
+    if (isValid && cfg.validation) {
+      if (cfg.validation === 'email') {
+        isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(captured);
+      } else if (cfg.validation === 'phone') {
+        // Basic phone validation allowing optional +, spaces, dashes, parentheses
+        isValid = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\./0-9]{5,20}$/.test(captured);
+      } else if (cfg.validation === 'regex' && cfg.regex) {
+        try {
+          isValid = new RegExp(cfg.regex).test(captured);
+        } catch(e) {
+          isValid = false;
+        }
+      }
+    }
+
+    if (isValid && cfg.var_key) {
       // Persist captured value + reset reprompt count atomically.
       const newVars = { ...run.vars, [cfg.var_key]: captured };
       const { error: capErr } = await db

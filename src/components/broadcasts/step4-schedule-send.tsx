@@ -28,6 +28,7 @@ interface Step4Props {
   template: MessageTemplate;
   audience: AudienceConfig;
   onSend: () => void;
+  onSchedule?: (date: Date) => void;
   onSaveDraft?: () => void;
   onBack: () => void;
   isProcessing: boolean;
@@ -40,6 +41,7 @@ export function Step4ScheduleSend({
   template,
   audience,
   onSend,
+  onSchedule,
   onSaveDraft,
   onBack,
   isProcessing,
@@ -185,50 +187,102 @@ export function Step4ScheduleSend({
             </Button>
           )}
 
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                variant="outline"
+                disabled={!name.trim() || isProcessing}
+                className="border-blue-700 text-blue-400 hover:bg-blue-900/30 disabled:opacity-50"
+              >
+                <Clock className="h-4 w-4 mr-2" />
+                Schedule for Later
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="border-slate-700 bg-slate-900 sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle className="text-white">Schedule Broadcast</DialogTitle>
+                <DialogDescription className="text-slate-400">
+                  Choose a date and time to send this broadcast automatically.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="py-4">
+                <Input 
+                  type="datetime-local"
+                  id="schedule-date"
+                  className="border-slate-700 bg-slate-800 text-white placeholder:text-slate-500"
+                  min={new Date().toISOString().slice(0, 16)}
+                />
+              </div>
+              <DialogFooter>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="border-slate-700 text-slate-300"
+                  >
+                    Cancel
+                  </Button>
+                </DialogTrigger>
+                <Button
+                  onClick={() => {
+                    const dateInput = document.getElementById('schedule-date') as HTMLInputElement;
+                    if (dateInput?.value) {
+                      // Trigger schedule event using standard onSend with a specific context
+                      // For now, let's pass it via an extended onSend if possible. 
+                      // Wait, we need to add an onSchedule prop!
+                      if (onSchedule) onSchedule(new Date(dateInput.value));
+                    }
+                  }}
+                  className="bg-blue-600 text-white hover:bg-blue-700"
+                >
+                  <Clock className="h-4 w-4 mr-2" />
+                  Schedule Broadcast
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+
           <Dialog open={showConfirm} onOpenChange={setShowConfirm}>
-          <DialogTrigger
-            render={
+            <DialogTrigger asChild>
               <Button
                 disabled={!name.trim() || isProcessing}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
-              />
-            }
-          >
-            <Send className="h-4 w-4" />
-            Send Broadcast
-          </DialogTrigger>
-          <DialogContent className="border-slate-700 bg-slate-900 sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle className="text-white">Confirm Broadcast</DialogTitle>
-              <DialogDescription className="text-slate-400">
-                You are about to send this broadcast to{' '}
-                <span className="font-medium text-white">{estimatedReach.toLocaleString()}</span>{' '}
-                contacts using the{' '}
-                <span className="font-medium text-white">{template.name}</span> template.
-                This action cannot be undone.
-              </DialogDescription>
-            </DialogHeader>
-            <DialogFooter>
-              <Button
-                variant="outline"
-                onClick={() => setShowConfirm(false)}
-                className="border-slate-700 text-slate-300"
               >
-                Cancel
+                <Send className="h-4 w-4 mr-2" />
+                Send Now
               </Button>
-              <Button
-                onClick={() => {
-                  setShowConfirm(false);
-                  onSend();
-                }}
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                <Send className="h-4 w-4" />
-                Confirm & Send
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+            </DialogTrigger>
+            <DialogContent className="border-slate-700 bg-slate-900 sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle className="text-white">Confirm Broadcast</DialogTitle>
+                <DialogDescription className="text-slate-400">
+                  You are about to send this broadcast to{' '}
+                  <span className="font-medium text-white">{estimatedReach.toLocaleString()}</span>{' '}
+                  contacts using the{' '}
+                  <span className="font-medium text-white">{template.name}</span> template.
+                  This action cannot be undone.
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter>
+                <Button
+                  variant="outline"
+                  onClick={() => setShowConfirm(false)}
+                  className="border-slate-700 text-slate-300"
+                >
+                  Cancel
+                </Button>
+                <Button
+                  onClick={() => {
+                    setShowConfirm(false);
+                    onSend();
+                  }}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  <Send className="h-4 w-4 mr-2" />
+                  Confirm & Send
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </div>

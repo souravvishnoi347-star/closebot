@@ -144,6 +144,25 @@ export interface SetTagNodeConfig {
   next_node_key: string;
 }
 
+export interface HttpFetchNodeConfig {
+  /** The URL to fetch. Can interpolate {{vars.X}} or {{contact.phone}}. */
+  url: string;
+  method: "GET" | "POST";
+  headers?: Record<string, string>;
+  /** JSON payload for POST. Can be interpolated. */
+  body?: string;
+  /**
+   * The key in `flow_runs.vars` to store the parsed JSON response object.
+   * E.g., if response is `{"status": "shipped"}`, and var_key is "api_res",
+   * downstream nodes can use `{{vars.api_res.status}}`.
+   */
+  var_key: string;
+  /** Node to advance to on 2xx success. */
+  success_next: string;
+  /** Node to advance to on failure (network error, 4xx, 5xx). */
+  error_next: string;
+}
+
 // Terminal nodes carry no config — they just stop the run.
 export type EndNodeConfig = Record<string, never>;
 
@@ -163,6 +182,7 @@ export type FlowNodeConfig =
   | { node_type: "collect_input"; config: CollectInputNodeConfig }
   | { node_type: "condition"; config: ConditionNodeConfig }
   | { node_type: "set_tag"; config: SetTagNodeConfig }
+  | { node_type: "http_fetch"; config: HttpFetchNodeConfig }
   | { node_type: "handoff"; config: HandoffNodeConfig }
   | { node_type: "end"; config: EndNodeConfig };
 
