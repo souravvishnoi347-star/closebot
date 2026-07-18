@@ -1,10 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  // Don't show the widget on dashboard/app routes
+  const isAppRoute = ['/dashboard', '/inbox', '/contacts', '/pipelines', '/broadcasts', '/automations', '/flows', '/settings'].some(p => pathname?.startsWith(p));
+  if (isAppRoute) return null;
 
   const phoneNumber = "919876543210"; // TODO: Replace with actual WhatsApp Business number
   const defaultMessage = "Hi! I'm interested in Voltchat AI. Can you tell me more?";
