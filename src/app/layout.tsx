@@ -14,11 +14,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Chatmagnet AI — WhatsApp CRM & Sales Automation",
-    template: "%s — Chatmagnet AI",
+    default: "Voltchat AI — WhatsApp CRM & Sales Automation",
+    template: "%s — Voltchat AI",
   },
-  description: "Chatmagnet AI is a WhatsApp CRM that helps businesses capture leads from Meta Ads, automate replies with AI, manage sales pipelines, and close deals faster.",
-  keywords: ["WhatsApp CRM", "WhatsApp automation", "AI chatbot", "sales pipeline", "lead management", "Meta ads CRM", "WhatsApp business", "Chatmagnet AI"],
+  description: "Voltchat AI is a WhatsApp CRM that helps businesses capture leads from Meta Ads, automate replies with AI, manage sales pipelines, and close deals faster.",
+  keywords: ["WhatsApp CRM", "WhatsApp automation", "AI chatbot", "sales pipeline", "lead management", "Meta ads CRM", "WhatsApp business", "Voltchat AI"],
   robots: {
     index: true,
     follow: true,
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     icon: [{ url: "/icon" }],
   },
   openGraph: {
-    title: "Chatmagnet AI — WhatsApp CRM & Sales Automation",
+    title: "Voltchat AI — WhatsApp CRM & Sales Automation",
     description: "Capture leads, automate replies, and close deals faster with the smartest WhatsApp CRM.",
     type: "website",
-    siteName: "Chatmagnet AI",
+    siteName: "Voltchat AI",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chatmagnet AI — WhatsApp CRM & Sales Automation",
+    title: "Voltchat AI — WhatsApp CRM & Sales Automation",
     description: "Capture leads, automate replies, and close deals faster with the smartest WhatsApp CRM.",
   },
   formatDetection: {

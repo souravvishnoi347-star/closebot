@@ -39,11 +39,11 @@ export default function ContactPage() {
 
             {/* Email Links */}
             <div className="flex flex-col gap-2 mb-16 mt-4">
-              <a href="mailto:contact@chatmagnet.io" className="text-lg font-medium text-slate-900 hover:text-blue-600 transition-colors">
-                contact@chatmagnet.io
+              <a href="mailto:contact@Voltchat.io" className="text-lg font-medium text-slate-900 hover:text-blue-600 transition-colors">
+                contact@Voltchat.io
               </a>
-              <a href="mailto:nikhil@chatmagnet.io" className="text-lg font-medium text-slate-900 hover:text-blue-600 transition-colors">
-                nikhil@chatmagnet.io
+              <a href="mailto:nikhil@Voltchat.io" className="text-lg font-medium text-slate-900 hover:text-blue-600 transition-colors">
+                nikhil@Voltchat.io
               </a>
             </div>
 

@@ -84,7 +84,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Innovation</h3>
                 <p className="text-slate-500 leading-relaxed font-medium mt-12">
-                  Innovation is at the heart of everything we do at Chatmagnet AI. We're constantly pushing boundaries to build a smarter future for sales.
+                  Innovation is at the heart of everything we do at Voltchat AI. We're constantly pushing boundaries to build a smarter future for sales.
                 </p>
               </div>
 
@@ -95,7 +95,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Sustainability</h3>
                 <p className="text-slate-500 leading-relaxed font-medium mt-12">
-                  At Chatmagnet AI, we're committed to building a smarter future—not just in sales efficiency, but for long-term sustainable growth.
+                  At Voltchat AI, we're committed to building a smarter future—not just in sales efficiency, but for long-term sustainable growth.
                 </p>
               </div>
 
@@ -160,7 +160,7 @@ export default function AboutPage() {
                 {[...Array(2)].map((_, i) => (
                   <div key={i} className="flex flex-col gap-6">
                     {[
-                      { name: "Rahul S.", text: "Chatmagnet AI completely transformed how we handle WhatsApp leads. The ROI is incredible." },
+                      { name: "Rahul S.", text: "Voltchat AI completely transformed how we handle WhatsApp leads. The ROI is incredible." },
                       { name: "Priya M.", text: "The automated routing saved us 20 hours a week. Best CRM investment ever." },
                       { name: "Amit K.", text: "Simple to use, no code required, and it just works flawlessly with our Meta ads." },
                     ].map((review, j) => (
@@ -181,7 +181,7 @@ export default function AboutPage() {
                 {[...Array(2)].map((_, i) => (
                   <div key={i} className="flex flex-col gap-6">
                     {[
-                      { name: "Sneha R.", text: "We were losing track of chats before Chatmagnet. Now everything is in one clean pipeline." },
+                      { name: "Sneha R.", text: "We were losing track of chats before Voltchat. Now everything is in one clean pipeline." },
                       { name: "Vikram D.", text: "The Smart Replies feature is basically an extra employee that works 24/7." },
                       { name: "Anjali T.", text: "Outstanding support team. They helped us set up our first visual flow in 10 minutes." },
                     ].map((review, j) => (

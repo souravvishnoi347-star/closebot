@@ -21,22 +21,22 @@ export default function TermsConditionsPage() {
             [&>p]:mb-6
             [&>strong]:text-slate-900 [&>strong]:font-bold"
         >
-          <h2>Welcome to Chatmagnet AI</h2>
+          <h2>Welcome to Voltchat AI</h2>
           <p>
-            These Terms & Conditions govern your use of the Chatmagnet AI software, including our WhatsApp CRM, shared team inbox, visual flow builder, and any associated services provided by Rivonic Solutions. By accessing or using Chatmagnet AI, you agree to be bound by these terms.
+            These Terms & Conditions govern your use of the Voltchat AI software, including our WhatsApp CRM, shared team inbox, visual flow builder, and any associated services provided by Rivonic Solutions. By accessing or using Voltchat AI, you agree to be bound by these terms.
           </p>
 
           <h2>Use of the Software</h2>
           <p>
-            Chatmagnet AI provides a Software as a Service (SaaS) platform to help businesses manage leads and automate WhatsApp communication. 
+            Voltchat AI provides a Software as a Service (SaaS) platform to help businesses manage leads and automate WhatsApp communication. 
           </p>
           <p>
-            <strong>Authorized Use:</strong> You agree to use the software solely for lawful business purposes. You must not use Chatmagnet AI to send spam, unsolicited promotional messages, or any content that violates Meta&apos;s WhatsApp Business policies.
+            <strong>Authorized Use:</strong> You agree to use the software solely for lawful business purposes. You must not use Voltchat AI to send spam, unsolicited promotional messages, or any content that violates Meta&apos;s WhatsApp Business policies.
           </p>
 
           <h2>WhatsApp Business API Compliance</h2>
           <p>
-            As a user of Chatmagnet AI, you are responsible for maintaining compliance with WhatsApp&apos;s Commerce and Business Policies. Chatmagnet AI is not liable if your WhatsApp Business number is banned or restricted by Meta due to policy violations, spam complaints, or unauthorized broadcasts.
+            As a user of Voltchat AI, you are responsible for maintaining compliance with WhatsApp&apos;s Commerce and Business Policies. Voltchat AI is not liable if your WhatsApp Business number is banned or restricted by Meta due to policy violations, spam complaints, or unauthorized broadcasts.
           </p>
 
           <h2>Subscriptions and Payments</h2>
@@ -49,7 +49,7 @@ export default function TermsConditionsPage() {
 
           <h2>Limitation of Liability</h2>
           <p>
-            Chatmagnet AI and Rivonic Solutions shall not be liable for any indirect, incidental, or consequential damages arising from your use of the CRM platform, including but not limited to loss of data, loss of business revenue, or interruptions to your sales pipeline.
+            Voltchat AI and Rivonic Solutions shall not be liable for any indirect, incidental, or consequential damages arising from your use of the CRM platform, including but not limited to loss of data, loss of business revenue, or interruptions to your sales pipeline.
           </p>
 
           <h2>Account Termination</h2>
@@ -59,7 +59,7 @@ export default function TermsConditionsPage() {
           
           <h2>Contact Us</h2>
           <p>
-            If you have any questions about these Terms & Conditions, please contact our support team at hello@chatmagnet.io.
+            If you have any questions about these Terms & Conditions, please contact our support team at hello@Voltchat.io.
           </p>
         </div>
       </main>

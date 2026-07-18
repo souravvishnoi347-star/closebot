@@ -106,7 +106,7 @@ export default async function CaseStudyDetail({ params }: Props) {
             The Solution
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed mb-8">
-            {study.companyName} partnered with Chatmagnet AI to unify its operations and automate sales-driven workflows. In just a few weeks, Chatmagnet AI helped:
+            {study.companyName} partnered with Voltchat AI to unify its operations and automate sales-driven workflows. In just a few weeks, Voltchat AI helped:
           </p>
           <ul className="space-y-6">
             {study.solution.map((item, index) => {

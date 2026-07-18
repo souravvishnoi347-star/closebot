@@ -9,7 +9,7 @@ export function AISettings() {
       <div>
         <h1 className="font-bold text-2xl text-slate-900 tracking-tight">AI Settings</h1>
         <p className="text-slate-500 mt-2">
-          Configure how Chatmagnet AI&apos;s AI interacts with your contacts and manages pipelines.
+          Configure how Voltchat AI&apos;s AI interacts with your contacts and manages pipelines.
         </p>
       </div>
 
@@ -44,7 +44,7 @@ export function AISettings() {
                     <div className="flex w-full items-center justify-between">
                       <div className="flex items-center">
                         <div className="text-sm">
-                          <p className="font-bold text-slate-900">Chatmagnet AI Premium</p>
+                          <p className="font-bold text-slate-900">Voltchat AI Premium</p>
                           <p className="text-slate-500 mt-1">
                             Best for complex reasoning and nuanced sales conversations.
                           </p>
@@ -63,7 +63,7 @@ export function AISettings() {
                     <div className="flex w-full items-center justify-between">
                       <div className="flex items-center">
                         <div className="text-sm">
-                          <p className="font-bold text-slate-900">Chatmagnet AI Fast</p>
+                          <p className="font-bold text-slate-900">Voltchat AI Fast</p>
                           <p className="text-slate-500 mt-1">
                             Optimized for speed and high-volume, simple inquiries.
                           </p>
@@ -109,7 +109,7 @@ export function AISettings() {
                   rows={4}
                 ></textarea>
                 <p className="text-xs text-slate-500 mt-2">
-                  This overrides default bot behavior. Leave blank to use standard Chatmagnet AI persona.
+                  This overrides default bot behavior. Leave blank to use standard Voltchat AI persona.
                 </p>
               </div>
             </div>

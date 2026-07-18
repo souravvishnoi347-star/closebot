@@ -70,7 +70,7 @@ function LoginForm() {
               <div className="w-8 h-8 rounded-xl bg-blue-600 flex items-center justify-center shadow-md shadow-blue-600/30">
                 <Zap className="w-4 h-4 text-white fill-white" />
               </div>
-              Chatmagnet AI
+              Voltchat AI
             </Link>
           </div>
 

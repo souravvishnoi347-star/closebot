@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
         >
           <h2>Protecting Your Privacy, Our Top Priority</h2>
           <p>
-            At Chatmagnet AI, your trust is our greatest asset. As a premier WhatsApp CRM and automation software, we are dedicated to maintaining the highest standards of privacy and data security. Our commitment extends to ensuring your information is handled responsibly, securely, and transparently. Whether you&apos;re a small business or a large enterprise relying on our sales pipelines, we prioritize your privacy above all else.
+            At Voltchat AI, your trust is our greatest asset. As a premier WhatsApp CRM and automation software, we are dedicated to maintaining the highest standards of privacy and data security. Our commitment extends to ensuring your information is handled responsibly, securely, and transparently. Whether you&apos;re a small business or a large enterprise relying on our sales pipelines, we prioritize your privacy above all else.
           </p>
 
           <h2>What We Collect and How We Use It</h2>
@@ -33,16 +33,16 @@ export default function PrivacyPolicyPage() {
           </p>
           
           <p>
-            <strong>Platform Usage Data:</strong> To continually improve our WhatsApp visual flow builder and automation algorithms, we gather insights about how you interact with Chatmagnet AI, including login activity, feature usage (like Kanban board movements), and routing preferences.
+            <strong>Platform Usage Data:</strong> To continually improve our WhatsApp visual flow builder and automation algorithms, we gather insights about how you interact with Voltchat AI, including login activity, feature usage (like Kanban board movements), and routing preferences.
           </p>
 
           <p>
-            <strong>Customer Data (Your Leads):</strong> Information you upload or manage within Chatmagnet AI, such as client details, WhatsApp chat logs, and Meta ads attributions, remains strictly your property. We use this data <em>only</em> to support your business needs, route chats, and generate analytics. We do not sell your customer data.
+            <strong>Customer Data (Your Leads):</strong> Information you upload or manage within Voltchat AI, such as client details, WhatsApp chat logs, and Meta ads attributions, remains strictly your property. We use this data <em>only</em> to support your business needs, route chats, and generate analytics. We do not sell your customer data.
           </p>
 
           <h2>WhatsApp API Compliance</h2>
           <p>
-            Because Chatmagnet AI interfaces with the official WhatsApp Business API, we strictly adhere to Meta&apos;s data privacy requirements. Any messages sent or received are processed securely in real-time. Message content is encrypted where applicable and stored securely on our cloud infrastructure exclusively for your team&apos;s access.
+            Because Voltchat AI interfaces with the official WhatsApp Business API, we strictly adhere to Meta&apos;s data privacy requirements. Any messages sent or received are processed securely in real-time. Message content is encrypted where applicable and stored securely on our cloud infrastructure exclusively for your team&apos;s access.
           </p>
 
           <h2>Data Security Measures</h2>

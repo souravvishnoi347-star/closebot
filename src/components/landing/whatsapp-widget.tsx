@@ -7,7 +7,7 @@ export function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
 
   const phoneNumber = "919876543210"; // TODO: Replace with actual WhatsApp Business number
-  const defaultMessage = "Hi! I'm interested in Chatmagnet AI. Can you tell me more?";
+  const defaultMessage = "Hi! I'm interested in Voltchat AI. Can you tell me more?";
 
   const handleChat = () => {
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
@@ -29,7 +29,7 @@ export function WhatsAppWidget() {
                 </svg>
               </div>
               <div>
-                <div className="text-white font-bold text-sm">Chatmagnet AI</div>
+                <div className="text-white font-bold text-sm">Voltchat AI</div>
                 <div className="text-emerald-200 text-xs font-medium">Typically replies within minutes</div>
               </div>
             </div>
@@ -42,7 +42,7 @@ export function WhatsAppWidget() {
           <div className="bg-[#ECE5DD] p-5">
             <div className="bg-white rounded-xl rounded-tl-none px-4 py-3 shadow-sm max-w-[85%]">
               <p className="text-slate-800 text-sm leading-relaxed">
-                Hey there! 👋 Welcome to Chatmagnet AI. How can we help you today?
+                Hey there! 👋 Welcome to Voltchat AI. How can we help you today?
               </p>
               <div className="text-[10px] text-slate-400 text-right mt-1 font-medium">just now</div>
             </div>

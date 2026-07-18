@@ -12,10 +12,10 @@ export default function CaseStudiesPage() {
       {/* Header Section */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-20 text-center">
         <h1 className="text-5xl md:text-7xl font-bold text-slate-900 tracking-tight mb-6">
-          Chatmagnet AI Drives Results
+          Voltchat AI Drives Results
         </h1>
         <p className="text-xl text-slate-500 font-medium">
-          Chatmagnet AI empowers your team to work smarter, close faster
+          Voltchat AI empowers your team to work smarter, close faster
         </p>
       </div>
 

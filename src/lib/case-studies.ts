@@ -19,12 +19,12 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "nexora",
     year: "2026",
-    title: "How Chatmagnet AI helped boost deal closures by 40% in just 3 months",
+    title: "How Voltchat AI helped boost deal closures by 40% in just 3 months",
     companyName: "Nexora",
     color: "bg-red-600",
     heroImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=1600&q=80",
     aboutCompany: "Nexora, a fast-growing B2B software provider, faced stagnant online sales despite strong website traffic. Their marketing and sales efforts were disjointed, and campaign execution was delayed due to manual processes and a lack of integration across systems.",
-    challenge: "Before adopting Chatmagnet AI, Nexora's sales team relied on outdated spreadsheets, scattered CRM tools, and manual updates. Leads were falling through the cracks, pipeline visibility was poor, and follow-ups were inconsistent. As a result, their close rates were stagnant and sales reps were frustrated.",
+    challenge: "Before adopting Voltchat AI, Nexora's sales team relied on outdated spreadsheets, scattered CRM tools, and manual updates. Leads were falling through the cracks, pipeline visibility was poor, and follow-ups were inconsistent. As a result, their close rates were stagnant and sales reps were frustrated.",
     solution: [
       "Centralized all lead data into one unified WhatsApp CRM platform",
       "Customized their pipeline stages to match specific sales journeys",
@@ -40,21 +40,21 @@ export const caseStudies: CaseStudy[] = [
       "Sales managers had full pipeline visibility, enabling better coaching and forecasting"
     ],
     testimonial: {
-      quote: "Chatmagnet AI changed everything for us. We finally have one source of truth for our pipeline. The automation alone helped our reps follow up faster, and we're seeing real impact on our bottom line.",
+      quote: "Voltchat AI changed everything for us. We finally have one source of truth for our pipeline. The automation alone helped our reps follow up faster, and we're seeing real impact on our bottom line.",
       author: "Elena Moore, Head of Growth at Nexora"
     }
   },
   {
     slug: "fluxenta",
     year: "2026",
-    title: "How Chatmagnet AI reduced lead response time by 60% for Fluxenta",
+    title: "How Voltchat AI reduced lead response time by 60% for Fluxenta",
     companyName: "Fluxenta",
     color: "bg-[#8AA482]",
     heroImage: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1600&q=80",
     aboutCompany: "Fluxenta, a mid-sized e-commerce company specializing in home and lifestyle products, faced challenges in engaging leads promptly. Their sales cycle heavily depended on immediate response to inquiries from Meta ads.",
     challenge: "Fluxenta's sales team was overwhelmed with the volume of incoming leads from WhatsApp. Manual sorting and responding meant a 12-hour average response time. By the time they reached out, the lead had often gone cold.",
     solution: [
-      "Deployed the Chatmagnet AI smart chatbot to instantly qualify incoming leads",
+      "Deployed the Voltchat AI smart chatbot to instantly qualify incoming leads",
       "Integrated directly with Meta Ads to pipe leads directly into the CRM",
       "Created visual automation flows to route high-value leads directly to human agents",
       "Implemented quick-reply templates for the most common product inquiries",
@@ -75,14 +75,14 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "growthspark",
     year: "2025",
-    title: "Turning missed leads into wins: A B2B success story with Chatmagnet AI",
+    title: "Turning missed leads into wins: A B2B success story with Voltchat AI",
     companyName: "GrowthSpark",
     color: "bg-blue-500",
     heroImage: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1600&q=80",
     aboutCompany: "GrowthSpark is a boutique marketing agency helping local businesses scale. They manage high-ticket B2B sales where nurturing and building trust are paramount.",
     challenge: "Their sales process was highly personalized but incredibly manual. Follow-ups were frequently missed because they relied on sticky notes and memory. Important client details were lost in personal WhatsApp chats rather than centralized.",
     solution: [
-      "Migrated all client communications to Chatmagnet AI's unified inbox",
+      "Migrated all client communications to Voltchat AI's unified inbox",
       "Configured automated follow-up sequences using the visual flow builder",
       "Implemented lead scoring to identify which prospects were engaging with content",
       "Set up automated meeting reminders via WhatsApp to reduce no-shows"
@@ -94,14 +94,14 @@ export const caseStudies: CaseStudy[] = [
       "Saved the founders 10+ hours a week in administrative tracking"
     ],
     testimonial: {
-      quote: "Before Chatmagnet AI, we were losing money simply by forgetting to follow up. Now, the system remembers for us. It's like having a virtual sales assistant that never sleeps.",
+      quote: "Before Voltchat AI, we were losing money simply by forgetting to follow up. Now, the system remembers for us. It's like having a virtual sales assistant that never sleeps.",
       author: "Sarah Jenkins, Co-Founder at GrowthSpark"
     }
   },
   {
     slug: "remoterev",
     year: "2025",
-    title: "How Chatmagnet AI helped a remote sales team work like a single unit",
+    title: "How Voltchat AI helped a remote sales team work like a single unit",
     companyName: "RemoteRev",
     color: "bg-[#F97316]",
     heroImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80",
@@ -120,7 +120,7 @@ export const caseStudies: CaseStudy[] = [
       "Team productivity increased by 35% as measured by outbound activity"
     ],
     testimonial: {
-      quote: "Managing a remote team is hard enough. Managing a remote sales team on WhatsApp was impossible before Chatmagnet AI. It brought order to our chaos and unified our entire revenue engine.",
+      quote: "Managing a remote team is hard enough. Managing a remote sales team on WhatsApp was impossible before Voltchat AI. It brought order to our chaos and unified our entire revenue engine.",
       author: "Michael Chang, Director of Sales at RemoteRev"
     }
   }
