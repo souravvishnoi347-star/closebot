@@ -599,6 +599,7 @@ async function processMessage(
   const { error: convError } = await supabaseAdmin()
     .from('conversations')
     .update({
+      status: 'open',
       last_message_text: contentText || `[${message.type}]`,
       last_message_at: new Date().toISOString(),
       unread_count: (conversation.unread_count || 0) + 1,
