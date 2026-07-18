@@ -729,7 +729,7 @@ export default function LandingPage() {
               <p className="text-lg text-slate-600">Everything you need to know about Voltchat AI and how it works.</p>
             </div>
             
-            <Accordion type="single" collapsible className="w-full space-y-4">
+            <Accordion className="w-full space-y-4">
               <AccordionItem value="item-1" className="border border-slate-200 rounded-2xl px-6 bg-slate-50/50">
                 <AccordionTrigger className="text-left text-lg font-bold text-slate-900 hover:text-blue-600 py-6 hover:no-underline">Do I need the official WhatsApp Business API?</AccordionTrigger>
                 <AccordionContent className="text-slate-600 leading-relaxed pb-6 text-base">

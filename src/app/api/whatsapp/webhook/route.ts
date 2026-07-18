@@ -46,6 +46,8 @@ interface WhatsAppMessage {
   }
   /** Present when the customer swipe-replies to one of our messages. */
   context?: { id: string }
+  /** Present when the user clicks a Click-to-WhatsApp Meta Ad */
+  referral?: { source_url?: string }
 }
 
 interface WhatsAppWebhookEntry {
@@ -479,11 +481,25 @@ async function processMessage(
   const senderPhone = normalizePhone(message.from)
   const contactName = contact.profile.name
 
+  // Extract UTM parameters if present via Click-to-WhatsApp Ads referral
+  let utmSource, utmMedium, utmCampaign;
+  if (message.referral?.source_url) {
+    try {
+      const url = new URL(message.referral.source_url);
+      utmSource = url.searchParams.get('utm_source') || undefined;
+      utmMedium = url.searchParams.get('utm_medium') || undefined;
+      utmCampaign = url.searchParams.get('utm_campaign') || undefined;
+    } catch (e) {
+      // Invalid URL in referral
+    }
+  }
+
   // Find or create contact
   const contactOutcome = await findOrCreateContact(
     userId,
     senderPhone,
-    contactName
+    contactName,
+    { utmSource, utmMedium, utmCampaign }
   )
   if (!contactOutcome) return
   const contactRecord = contactOutcome.contact
@@ -662,7 +678,18 @@ async function processMessage(
   // manually-imported contacts sending for the first time. We dispatch both
   // so users can pick whichever semantic they want; an automation that
   // listens to only one trigger runs only when that trigger matches.
-  if (contactOutcome.wasCreated) automationTriggers.unshift('new_contact_created')
+  if (contactOutcome.wasCreated) {
+    automationTriggers.unshift('new_contact_created')
+    // Create a real-time notification for the new lead
+    supabaseAdmin().from('notifications').insert({
+      user_id: userId,
+      title: 'New Lead Captured',
+      message: `A new lead (${contactName}) has reached out to your WhatsApp.`,
+      link_url: `/inbox?c=${conversation.id}`,
+    }).then((res: any) => {
+      if (res.error) console.error('[webhook] failed to create notification:', res.error)
+    })
+  }
   if (isFirstInboundMessage) automationTriggers.unshift('first_inbound_message')
   for (const triggerType of automationTriggers) {
     runAutomationsForTrigger({
@@ -835,7 +862,8 @@ interface ContactOutcome {
 async function findOrCreateContact(
   userId: string,
   phone: string,
-  name: string
+  name: string,
+  utmData?: { utmSource?: string; utmMedium?: string; utmCampaign?: string }
 ): Promise<ContactOutcome | null> {
   // Look up existing contacts for this user
   const { data: contacts, error: contactsError } = await supabaseAdmin()
@@ -852,11 +880,17 @@ async function findOrCreateContact(
   const existingContact = contacts?.find((c: ContactRow) => phonesMatch(c.phone, phone))
 
   if (existingContact) {
-    // Update name if it changed
-    if (name && name !== existingContact.name) {
+    // Update name or UTM data if it changed
+    const updates: any = {};
+    if (name && name !== existingContact.name) updates.name = name;
+    if (utmData?.utmSource && utmData.utmSource !== existingContact.utm_source) updates.utm_source = utmData.utmSource;
+    if (utmData?.utmMedium && utmData.utmMedium !== existingContact.utm_medium) updates.utm_medium = utmData.utmMedium;
+    if (utmData?.utmCampaign && utmData.utmCampaign !== existingContact.utm_campaign) updates.utm_campaign = utmData.utmCampaign;
+    
+    if (Object.keys(updates).length > 0) {
       await supabaseAdmin()
         .from('contacts')
-        .update({ name, updated_at: new Date().toISOString() })
+        .update({ ...updates, updated_at: new Date().toISOString() })
         .eq('id', existingContact.id)
     }
     return { contact: existingContact, wasCreated: false }
@@ -869,6 +903,9 @@ async function findOrCreateContact(
       user_id: userId,
       phone,
       name: name || phone,
+      utm_source: utmData?.utmSource,
+      utm_medium: utmData?.utmMedium,
+      utm_campaign: utmData?.utmCampaign,
     })
     .select()
     .single()

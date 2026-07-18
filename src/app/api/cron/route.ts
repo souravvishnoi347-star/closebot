@@ -189,15 +189,10 @@ async function processBroadcast(broadcast: any) {
               accessToken,
               to: variant,
               templateName: template_name,
-              languageCode: template_language ?? 'en_US',
-              components: params.length > 0 ? [
-                {
-                  type: 'body',
-                  parameters: params.map(p => ({ type: 'text', text: String(p) }))
-                }
-              ] : []
+              language: template_language ?? 'en_US',
+              params: params.length > 0 ? params.map(p => String(p)) : undefined
             });
-            sentMessageId = res.messages[0].id;
+            sentMessageId = res.messageId;
             break;
           } catch (e: any) {
             lastError = e.message;

@@ -1,5 +1,7 @@
 "use client";
 
+import { NotificationBell } from "./notification-bell";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/hooks/use-auth";
@@ -65,6 +67,9 @@ export function Header({ onOpenSidebar }: HeaderProps) {
         </button>
 
       </div>
+
+      <div className="flex items-center gap-2">
+        <NotificationBell />
 
       <DropdownMenu>
         <DropdownMenuTrigger
@@ -132,6 +137,7 @@ export function Header({ onOpenSidebar }: HeaderProps) {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+      </div>
     </header>
   );
 }

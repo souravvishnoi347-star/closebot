@@ -14,7 +14,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { ArrowLeft, Send, Loader2, Users, Save } from 'lucide-react';
+import { ArrowLeft, Send, Loader2, Users, Save, Clock } from 'lucide-react';
 
 interface AudienceConfig {
   type: string;
@@ -188,15 +188,9 @@ export function Step4ScheduleSend({
           )}
 
           <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                disabled={!name.trim() || isProcessing}
-                className="border-blue-700 text-blue-400 hover:bg-blue-900/30 disabled:opacity-50"
-              >
+            <DialogTrigger className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 border-blue-700 text-blue-400 hover:bg-blue-900/30 disabled:opacity-50" disabled={!name.trim() || isProcessing}>
                 <Clock className="h-4 w-4 mr-2" />
                 Schedule for Later
-              </Button>
             </DialogTrigger>
             <DialogContent className="border-slate-700 bg-slate-900 sm:max-w-md">
               <DialogHeader>
@@ -214,21 +208,13 @@ export function Step4ScheduleSend({
                 />
               </div>
               <DialogFooter>
-                <DialogTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="border-slate-700 text-slate-300"
-                  >
+                <DialogTrigger className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors border shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 border-slate-700 text-slate-300">
                     Cancel
-                  </Button>
                 </DialogTrigger>
                 <Button
                   onClick={() => {
                     const dateInput = document.getElementById('schedule-date') as HTMLInputElement;
                     if (dateInput?.value) {
-                      // Trigger schedule event using standard onSend with a specific context
-                      // For now, let's pass it via an extended onSend if possible. 
-                      // Wait, we need to add an onSchedule prop!
                       if (onSchedule) onSchedule(new Date(dateInput.value));
                     }
                   }}
@@ -242,14 +228,9 @@ export function Step4ScheduleSend({
           </Dialog>
 
           <Dialog open={showConfirm} onOpenChange={setShowConfirm}>
-            <DialogTrigger asChild>
-              <Button
-                disabled={!name.trim() || isProcessing}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
-              >
+            <DialogTrigger className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors shadow hover:bg-primary/90 h-9 px-4 py-2 bg-primary text-primary-foreground disabled:opacity-50" disabled={!name.trim() || isProcessing}>
                 <Send className="h-4 w-4 mr-2" />
-                Send Now
-              </Button>
+                Send Broadcast
             </DialogTrigger>
             <DialogContent className="border-slate-700 bg-slate-900 sm:max-w-md">
               <DialogHeader>

@@ -27,6 +27,9 @@ export interface Contact {
   avatar_url?: string;
   assigned_to?: string;
   assignee?: Profile;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
   created_at: string;
   updated_at: string;
 }
@@ -411,4 +414,14 @@ export interface AutomationLog {
   error_message?: string | null;
   created_at: string;
   contact?: Contact;
+}
+
+export interface Notification {
+  id: string;
+  user_id: string;
+  title: string;
+  message: string;
+  link_url?: string;
+  is_read: boolean;
+  created_at: string;
 }
