@@ -57,7 +57,7 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-slate-900 mb-6">Info</h4>
             <ul className="space-y-4">
-              <li><Link href="/#about" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors">About Us</Link></li>
+
               <li><Link href="/features" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors">Features</Link></li>
               <li><Link href="/blogs" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors">Blogs</Link></li>
               <li><Link href="/pricing" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors">Pricing</Link></li>
@@ -67,9 +67,9 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-slate-900 mb-6">Resources</h4>
             <ul className="space-y-4">
-              <li><Link href="#" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors">Case Studies</Link></li>
+              <li><Link href="/case-studies" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors">Case Studies</Link></li>
               <li><Link href="/blogs" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors">Blogs</Link></li>
-              <li><Link href="#" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors">Contact Us</Link></li>
+              <li><Link href="/contact" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors">Contact Us</Link></li>
               <li><Link href="/integrations" className="text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors">Integrations</Link></li>
             </ul>
           </div>

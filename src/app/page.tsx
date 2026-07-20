@@ -124,65 +124,27 @@ export default function LandingPage() {
             </motion.div>
           </div>
 
-          {/* Video Dashboard Mockup - Outside max-w-4xl for wider landscape */}
-          <div className="max-w-6xl mx-auto px-6 lg:px-12 w-full relative z-10 flex flex-col items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="w-full mt-24 relative"
-            >
-              <div className="bg-white border border-slate-200/60 rounded-3xl p-2 md:p-4 shadow-2xl shadow-slate-200/50">
-                <div className="aspect-[16/9] w-full bg-slate-900 rounded-2xl overflow-hidden relative group cursor-pointer border border-slate-100">
-                  {/* Random Video Placeholder */}
-                  <video 
-                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-                    autoPlay muted loop playsInline
-                    src="https://cdn.coverr.co/videos/coverr-typing-on-a-laptop-5228/1080p.mp4"
-                  />
-                  
-                  {/* Play Button Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                      <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xl">
-                        <PlayCircle className="w-7 h-7 text-slate-900 ml-1" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
         </section>
 
         {/* ─── LOGO TICKER ─── */}
         <section className="py-12 border-y border-slate-200/50 bg-white shadow-sm flex flex-col items-center justify-center">
           <p className="text-sm font-medium text-slate-500 mb-8">Trusted by 20+ scaling businesses</p>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
-            {/* Nexora */}
-            <div className="flex items-center gap-2 font-bold text-2xl tracking-tight text-slate-800 hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="text-red-500"><BrainCircuit className="w-7 h-7" /></div>
-              Nexora
+            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/client1.png" alt="Client 1" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
             </div>
-            {/* Trivexa */}
-            <div className="flex items-center gap-2 font-bold text-2xl tracking-tight text-slate-800 hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="text-indigo-600"><Zap className="w-7 h-7 fill-indigo-600" /></div>
-              Trivexa
+            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/client2.png" alt="Client 2" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
             </div>
-            {/* Veltriq */}
-            <div className="flex items-center gap-2 font-bold text-2xl tracking-tight text-slate-800 hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="text-blue-500"><BarChart3 className="w-7 h-7" /></div>
-              Veltriq
+            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/client3.png" alt="Client 3" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
             </div>
-            {/* Fluxenta */}
-            <div className="flex items-center gap-2 font-bold text-2xl tracking-tight text-slate-800 hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="text-emerald-500"><Bot className="w-7 h-7" /></div>
-              Fluxenta
-            </div>
-            {/* Fyntra */}
-            <div className="flex items-center gap-2 font-bold text-2xl tracking-tight text-slate-800 hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="text-orange-500"><Building2 className="w-7 h-7" /></div>
-              Fyntra
+            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/client4.png" alt="Client 4" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
             </div>
           </div>
         </section>
@@ -780,7 +742,7 @@ export default function LandingPage() {
                   <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden"><img src="https://i.pravatar.cc/100?img=32" alt="Avatar" /></div>
                   <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden"><img src="https://i.pravatar.cc/100?img=68" alt="Avatar" /></div>
                 </div>
-                <div>Joined by 100+ scaling businesses</div>
+                <div>Joined by 20+ scaling businesses</div>
               </div>
             </div>
 

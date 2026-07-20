@@ -130,27 +130,23 @@ export default function PricingPage() {
 
         {/* ─── LOGOS ─── */}
         <div className="py-16 flex flex-col items-center justify-center border-b border-slate-200/50 mb-24">
-          <p className="text-sm font-semibold text-slate-500 mb-10 text-center">Trusted by 17,000+ founders & business owners</p>
+          <p className="text-sm font-semibold text-slate-500 mb-10 text-center">Trusted by 20+ founders & business owners</p>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-75">
-            <div className="flex items-center gap-2 font-extrabold text-xl tracking-tight text-slate-800">
-              <div className="text-rose-500"><BrainCircuit className="w-6 h-6" /></div>
-              Nexora
+            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/client1.png" alt="Client 1" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
             </div>
-            <div className="flex items-center gap-2 font-extrabold text-xl tracking-tight text-slate-800">
-              <div className="text-orange-500"><Rocket className="w-6 h-6" /></div>
-              Fyntra
+            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/client2.png" alt="Client 2" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
             </div>
-            <div className="flex items-center gap-2 font-extrabold text-xl tracking-tight text-slate-800">
-              <div className="text-blue-500"><Zap className="w-6 h-6" /></div>
-              Veltriq
+            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/client3.png" alt="Client 3" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
             </div>
-            <div className="flex items-center gap-2 font-extrabold text-xl tracking-tight text-slate-800">
-              <div className="text-purple-500"><Bot className="w-6 h-6" /></div>
-              Trivexa
-            </div>
-            <div className="flex items-center gap-2 font-extrabold text-xl tracking-tight text-slate-800">
-              <div className="text-emerald-500"><Building2 className="w-6 h-6" /></div>
-              Fluxenta
+            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/client4.png" alt="Client 4" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
             </div>
           </div>
         </div>

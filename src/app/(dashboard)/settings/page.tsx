@@ -10,8 +10,9 @@ import { ProfileForm } from '@/components/settings/profile-form';
 import { PasswordForm } from '@/components/settings/password-form';
 import { SessionsCard } from '@/components/settings/sessions-card';
 import { AppearancePanel } from '@/components/settings/appearance-panel';
-import { AISettings } from '@/components/settings/ai-settings';
-import { Bot, Users } from 'lucide-react';
+import { AiBotSetup } from '@/components/settings/ai-bot-setup';
+import { PaymentSettings } from '@/components/settings/payment-settings';
+import { Bot, Users, CreditCard } from 'lucide-react';
 import { TeamManagement } from '@/components/settings/team-management';
 
 const TAB_VALUES = [
@@ -22,6 +23,7 @@ const TAB_VALUES = [
   'tags',
   'appearance',
   'ai',
+  'payments',
 ] as const;
 type TabValue = (typeof TAB_VALUES)[number];
 
@@ -107,6 +109,13 @@ export default function SettingsPage() {
             <Bot className="size-4" />
             AI Settings
           </TabsTrigger>
+          <TabsTrigger
+            value="payments"
+            className="data-[state=active]:bg-white data-[state=active]:text-blue-600 data-[state=active]:shadow-sm text-slate-600 font-bold gap-2"
+          >
+            <CreditCard className="size-4" />
+            Payments
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="profile" className="space-y-6">
@@ -136,7 +145,11 @@ export default function SettingsPage() {
         </TabsContent>
 
         <TabsContent value="ai">
-          <AISettings />
+          <AiBotSetup />
+        </TabsContent>
+
+        <TabsContent value="payments">
+          <PaymentSettings />
         </TabsContent>
       </Tabs>
     </div>

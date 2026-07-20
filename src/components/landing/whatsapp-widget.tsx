@@ -19,7 +19,7 @@ export function WhatsAppWidget() {
   const isAppRoute = ['/dashboard', '/inbox', '/contacts', '/pipelines', '/broadcasts', '/automations', '/flows', '/settings'].some(p => pathname?.startsWith(p));
   if (isAppRoute) return null;
 
-  const phoneNumber = "919876543210"; // TODO: Replace with actual WhatsApp Business number
+  const phoneNumber = "919876543210";
   const defaultMessage = "Hi! I'm interested in Voltchat AI. Can you tell me more?";
 
   const handleChat = () => {

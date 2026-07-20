@@ -1,10 +1,17 @@
 "use client";
 
+import { toast } from 'sonner';
 import { Navbar } from '@/components/landing/navbar';
 import { Footer } from '@/components/landing/footer';
 import { Button } from '@/components/ui/button';
 
 export default function ContactPage() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    toast.success("Thank you for reaching out! Our team will get back to you shortly.");
+    (e.target as HTMLFormElement).reset();
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-blue-200 overflow-x-clip text-slate-900">
       <Navbar />
@@ -68,7 +75,7 @@ export default function ContactPage() {
 
           {/* Right Column - Form */}
           <div className="bg-white border border-slate-100 rounded-3xl p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label htmlFor="firstName" className="text-sm font-bold text-slate-700">First Name</label>

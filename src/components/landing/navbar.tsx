@@ -25,7 +25,7 @@ export function Navbar() {
           
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600 ml-4">
-            <Link href="/about" className="hover:text-slate-900 transition-colors">Our Story</Link>
+
             
             <div className="relative group">
               <button className="flex items-center gap-1 hover:text-slate-900 transition-colors">
@@ -71,7 +71,7 @@ export function Navbar() {
         {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full mt-2 bg-white/95 backdrop-blur-xl border border-slate-200/50 rounded-2xl shadow-xl shadow-slate-200/30 overflow-hidden flex flex-col py-4 px-4 animate-in fade-in slide-in-from-top-4 duration-200 z-50">
-            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-xl transition-colors">Our Story</Link>
+
             <Link href="/case-studies" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-xl transition-colors">Case Studies</Link>
             <Link href="/integrations" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-xl transition-colors">Integrations</Link>
             <Link href="/features" onClick={() => setIsMobileMenuOpen(false)} className="py-3 px-4 font-medium text-slate-600 hover:bg-slate-50 hover:text-blue-600 rounded-xl transition-colors">Features</Link>

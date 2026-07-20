@@ -40,6 +40,7 @@ import {
   Inbox,
   GitFork,
   Tag,
+  CreditCard,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -87,6 +88,7 @@ type NodeType =
   | "condition"
   | "set_tag"
   | "handoff"
+  | "payment"
   | "end";
 
 interface BuilderNode {
@@ -149,6 +151,11 @@ const NODE_META: Record<
     label: "Handoff to agent",
     icon: UserPlus,
     color: "text-amber-400",
+  },
+  payment: {
+    label: "Payment link",
+    icon: CreditCard,
+    color: "text-green-500",
   },
   end: { label: "End", icon: Flag, color: "text-slate-400" },
 };
@@ -274,6 +281,10 @@ function summarizeNode(node: BuilderNode): string | null {
       const note = typeof cfg.note === "string" ? cfg.note : "";
       return note.length > 0 ? truncate(note) : null;
     }
+    case "payment": {
+      const amount = typeof cfg.amount === "number" ? cfg.amount : 0;
+      return amount > 0 ? `Payment link: ₹${amount}` : "Payment link";
+    }
   }
 }
 
@@ -320,6 +331,8 @@ function defaultConfigFor(type: NodeType): Record<string, unknown> {
       return { mode: "add", tag_id: "", next_node_key: "" };
     case "handoff":
       return { note: "" };
+    case "payment":
+      return { amount: 0, description: "", next_node_key: "" };
     case "end":
       return {};
   }
@@ -1200,6 +1213,33 @@ function NodeConfigForm({
           onChange={(v) => onUpdateConfig({ note: v })}
           rows={2}
         />
+      )}
+
+      {node.node_type === "payment" && (
+        <div className="flex flex-col gap-3">
+          <div>
+            <label className="mb-1 block text-xs text-slate-400">Payment Amount (INR)</label>
+            <Input
+              type="number"
+              value={(cfg as { amount?: number }).amount ?? 0}
+              onChange={(e) => onUpdateConfig({ amount: parseFloat(e.target.value) || 0 })}
+              className="bg-slate-800"
+            />
+          </div>
+          <TextRow
+            label="Payment Description"
+            value={(cfg as { description?: string }).description ?? ""}
+            onChange={(v) => onUpdateConfig({ description: v })}
+            rows={2}
+          />
+          <NextNodeRow
+            label="Next node (after sending link)"
+            value={(cfg as { next_node_key?: string }).next_node_key ?? ""}
+            onChange={(v) => onUpdateConfig({ next_node_key: v })}
+            allNodes={allNodes}
+            currentKey={node.node_key}
+          />
+        </div>
       )}
 
       {node.node_type === "end" && (

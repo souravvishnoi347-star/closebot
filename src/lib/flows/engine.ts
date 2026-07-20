@@ -773,6 +773,82 @@ async function advanceFromNodeKey(
       await executeHandoff(db, run, node);
       return { outcome: "handed_off" };
     }
+    if (node.node_type === "payment") {
+      try {
+        const cfg = node.config as unknown as { amount: number; description: string; next_node_key: string };
+        const amount = typeof cfg.amount === 'number' ? cfg.amount : parseFloat(String(cfg.amount));
+        const desc = interpolateVars(cfg.description || "Payment Request", run.vars);
+        
+        // 1. Fetch Client Payment Config
+        const { data: payConfig } = await db.from('client_payment_configs')
+          .select('*')
+          .eq('user_id', run.user_id)
+          .eq('is_active', true)
+          .maybeSingle();
+
+        if (!payConfig || !payConfig.razorpay_linked_account_id) {
+          throw new Error("Client Payment Config missing or inactive");
+        }
+
+        // 2. Create Payment Link row
+        const { data: pLink, error: pErr } = await db.from('payment_links')
+          .insert({
+            user_id: run.user_id,
+            contact_id: run.contact_id,
+            amount: amount,
+            razorpay_payment_link_id: 'pending_' + Date.now(), // Temp until creation
+            razorpay_payment_link_url: '',
+          })
+          .select('id')
+          .single();
+
+        if (pErr) throw pErr;
+
+        // 3. Create Razorpay Link (using dynamic import to avoid breaking edge cases)
+        const { createPaymentLink } = await import('@/lib/razorpay/client');
+        const contactInfo = await db.from('contacts').select('name, phone').eq('id', run.contact_id).single();
+        const rzp = await createPaymentLink({
+          amount,
+          description: desc,
+          referenceId: pLink.id,
+          customer: {
+            name: contactInfo.data?.name || "Customer",
+            contact: contactInfo.data?.phone || "",
+          },
+          linkedAccountId: payConfig.razorpay_linked_account_id,
+          commissionRate: parseFloat(payConfig.commission_rate),
+        });
+
+        // 4. Update row
+        await db.from('payment_links').update({
+          razorpay_payment_link_id: rzp.id,
+          razorpay_payment_link_url: rzp.short_url,
+        }).eq('id', pLink.id);
+
+        // 5. Send to user
+        const { whatsapp_message_id } = await engineSendText({
+          userId: run.user_id,
+          conversationId: run.conversation_id!,
+          contactId: run.contact_id!,
+          text: `Pay here: ${rzp.short_url}`,
+        });
+
+        await logEvent(db, run.id, "message_sent", node.node_key, {
+          node_type: "payment",
+          whatsapp_message_id,
+        });
+
+        currentKey = cfg.next_node_key;
+      } catch (err) {
+        await logEvent(db, run.id, "error", node.node_key, {
+          reason: "payment_creation_failed",
+          detail: err instanceof Error ? err.message : String(err),
+        });
+        await endRun(db, run.id, "failed", "payment_creation_failed");
+        return { outcome: "completed" };
+      }
+      continue;
+    }
     if (node.node_type === "end") {
       await logEvent(db, run.id, "completed", node.node_key);
       await endRun(db, run.id, "completed", "end_node");

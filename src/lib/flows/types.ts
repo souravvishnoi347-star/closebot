@@ -166,6 +166,12 @@ export interface HttpFetchNodeConfig {
 // Terminal nodes carry no config — they just stop the run.
 export type EndNodeConfig = Record<string, never>;
 
+export interface PaymentNodeConfig {
+  amount: number;
+  description: string;
+  next_node_key: string;
+}
+
 /**
  * Total union — every concrete node_type the v1 engine understands.
  * Add new node types here and the engine's switch will flag missing
@@ -184,6 +190,7 @@ export type FlowNodeConfig =
   | { node_type: "set_tag"; config: SetTagNodeConfig }
   | { node_type: "http_fetch"; config: HttpFetchNodeConfig }
   | { node_type: "handoff"; config: HandoffNodeConfig }
+  | { node_type: "payment"; config: PaymentNodeConfig }
   | { node_type: "end"; config: EndNodeConfig };
 
 export type FlowNodeType = FlowNodeConfig["node_type"];

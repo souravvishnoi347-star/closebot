@@ -5,7 +5,7 @@ export const blogs = [
     title: "Stop Managing Leads in Excel Spreadsheets: The Smart Way to Route WhatsApp Leads",
     excerpt: "Washing out messy spreadsheets and manual chat routing is essential for growth. Discover how a dedicated WhatsApp CRM can automate your sales pipeline and stop leads from falling through the cracks.",
     author: "Voltchat AI Team",
-    date: "August 4, 2026",
+    date: "July 4, 2026",
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop",
     content: `
       <p>In a world dominated by smartphones and digital platforms, speed is everything. If you are still managing your business leads in messy Excel spreadsheets, you are losing money. Manual data entry not only consumes valuable hours but also creates delays in reaching out to hot prospects.</p>
@@ -35,7 +35,7 @@ export const blogs = [
     title: "How to Manage Real Estate Leads on WhatsApp: Best CRM for Agents in India",
     excerpt: "Learn how to manage real estate leads on WhatsApp efficiently. Discover why a dedicated WhatsApp CRM is the highest converting tool for real estate agents in India.",
     author: "Voltchat AI Team",
-    date: "August 6, 2026",
+    date: "July 6, 2026",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
     content: `
       <p>The real estate market moves fast. When potential buyers search for properties, they are often ready-to-buy and expect immediate responses. For real estate agents in India, WhatsApp is the primary communication channel, but managing hundreds of property inquiries manually is impossible.</p>
@@ -65,7 +65,7 @@ export const blogs = [
     title: "How to Track Meta Ads ROI on WhatsApp Instantly",
     excerpt: "Stop guessing your marketing returns. Learn how to track Meta Ads ROI on WhatsApp and optimize your ad spend using real-time data analytics and automated tracking.",
     author: "Voltchat AI Team",
-    date: "August 10, 2026",
+    date: "July 10, 2026",
     image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1000&auto=format&fit=crop",
     content: `
       <p>Businesses spend thousands on Facebook and Instagram ads to drive traffic to their WhatsApp numbers. But a common pain point remains: how do you know which ad actually resulted in a sale? Knowing how to track Meta ads ROI on WhatsApp is critical for scaling your campaigns.</p>
@@ -95,7 +95,7 @@ export const blogs = [
     title: "Top WATI Alternatives for Small Business India in 2026",
     excerpt: "Looking for an affordable WhatsApp CRM for Indian startups? Discover why Voltchat AI is emerging as one of the best WATI alternatives for small businesses in India.",
     author: "Voltchat AI Team",
-    date: "August 12, 2026",
+    date: "July 12, 2026",
     image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop",
     content: `
       <p>While WATI has been a popular choice for WhatsApp automation, many Indian startups and SMBs find its pricing structure and complex setup overwhelming. If you are searching for WATI alternatives for small business India, you need a solution that balances features with affordability.</p>
@@ -125,8 +125,8 @@ export const blogs = [
     title: "WhatsApp Shared Team Inbox with Kanban Board Explained",
     excerpt: "Discover how a WhatsApp shared team inbox with a Kanban board can revolutionize your lead management software and help sales teams close more deals.",
     author: "Voltchat AI Team",
-    date: "August 15, 2026",
-    image: "https://images.unsplash.com/photo-1542744094-24638ea0b3b5?q=80&w=1000&auto=format&fit=crop",
+    date: "July 15, 2026",
+    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1000&auto=format&fit=crop",
     content: `
       <p>Collaboration is the key to closing high-ticket sales. When multiple agents are interacting with customers on WhatsApp, using a single mobile device is a recipe for disaster. Enter the shared team inbox.</p>
       
@@ -155,7 +155,7 @@ export const blogs = [
     title: "WhatsApp Automation for Travel Agency: Boost Bookings 24/7",
     excerpt: "Learn how WhatsApp automation for travel agency operations can handle inquiries, send itineraries, and collect payments automatically.",
     author: "Voltchat AI Team",
-    date: "August 18, 2026",
+    date: "July 18, 2026",
     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop",
     content: `
       <p>Travelers today expect instant answers. Whether they are asking about visa requirements for Dubai or flight tickets to Bali, a delayed response usually means a lost booking. For travel agents, being available 24/7 is exhausting.</p>

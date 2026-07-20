@@ -6,6 +6,8 @@ import { normalizePhone, phonesMatch } from '@/lib/whatsapp/phone-utils'
 import { verifyMetaWebhookSignature } from '@/lib/whatsapp/webhook-signature'
 import { runAutomationsForTrigger } from '@/lib/automations/engine'
 import { dispatchInboundToFlows } from '@/lib/flows/engine'
+import { generateAIResponse } from '@/lib/ai/gemini'
+import { sendTextMessage } from '@/lib/whatsapp/meta-api'
 
 // Lazy-initialized to avoid build-time crash when env vars are missing
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -252,7 +254,8 @@ async function processWebhook(body: { entry?: WhatsAppWebhookEntry[] }) {
           message,
           contact,
           config.user_id,
-          decryptedAccessToken
+          decryptedAccessToken,
+          phoneNumberId
         )
       }
     }
@@ -476,7 +479,8 @@ async function processMessage(
   message: WhatsAppMessage,
   contact: { profile: { name: string }; wa_id: string },
   userId: string,
-  accessToken: string
+  accessToken: string,
+  phoneNumberId: string
 ) {
   const senderPhone = normalizePhone(message.from)
   const contactName = contact.profile.name
@@ -702,6 +706,57 @@ async function processMessage(
         conversation_id: conversation.id,
       },
     }).catch((err) => console.error('[automations] dispatch failed:', err))
+  }
+
+  // Gemini AI Bot Dispatch
+  if (!flowConsumed && inboundText) {
+    try {
+      const { data: aiConfig } = await supabaseAdmin()
+        .from('ai_bot_configs')
+        .select('*')
+        .eq('user_id', userId)
+        .eq('is_enabled', true)
+        .maybeSingle()
+
+      if (aiConfig) {
+        // Fetch recent messages for context
+        const { data: recentMsgs } = await supabaseAdmin()
+          .from('messages')
+          .select('text_body, direction')
+          .eq('conversation_id', conversation.id)
+          .order('created_at', { ascending: false })
+          .limit(10)
+
+        const chatHistory = (recentMsgs || [])
+          .reverse()
+          .filter((m: any) => m.text_body)
+          .map((m: any) => ({
+            role: m.direction === 'inbound' ? 'user' : 'model' as 'user' | 'model',
+            parts: [{ text: m.text_body! }]
+          }))
+        
+        // Remove the latest message from history because we pass it directly
+        chatHistory.pop()
+
+        const aiReply = await generateAIResponse({
+          systemPrompt: aiConfig.system_prompt || '',
+          customerMessage: inboundText,
+          chatHistory
+        })
+
+        if (aiReply) {
+          // Send the reply via WhatsApp
+          await sendTextMessage({
+            phoneNumberId: phoneNumberId,
+            accessToken: accessToken,
+            to: senderPhone,
+            text: aiReply
+          })
+        }
+      }
+    } catch (err) {
+      console.error('[Gemini AI] failed to process inbound:', err)
+    }
   }
 }
 
