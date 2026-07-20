@@ -130,21 +130,21 @@ export default function LandingPage() {
         <section className="py-12 border-y border-slate-200/50 bg-white shadow-sm flex flex-col items-center justify-center">
           <p className="text-sm font-medium text-slate-500 mb-8">Trusted by 20+ scaling businesses</p>
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
-            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+            <div className="hover:opacity-80 transition-opacity cursor-pointer flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client1.png" alt="Client 1" className="h-16 md:h-20 w-auto object-contain" />
+              <img src="/client1.png" alt="Client 1" className="h-24 md:h-32 w-auto object-contain max-w-[200px] md:max-w-[250px]" />
             </div>
-            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+            <div className="hover:opacity-80 transition-opacity cursor-pointer flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client2.png" alt="Client 2" className="h-16 md:h-20 w-auto object-contain" />
+              <img src="/client2.png" alt="Client 2" className="h-24 md:h-32 w-auto object-contain max-w-[200px] md:max-w-[250px]" />
             </div>
-            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+            <div className="hover:opacity-80 transition-opacity cursor-pointer flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client3.png" alt="Client 3" className="h-16 md:h-20 w-auto object-contain" />
+              <img src="/client3.png" alt="Client 3" className="h-24 md:h-32 w-auto object-contain max-w-[200px] md:max-w-[250px]" />
             </div>
-            <div className="hover:opacity-80 transition-opacity cursor-pointer">
+            <div className="hover:opacity-80 transition-opacity cursor-pointer flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client4.png" alt="Client 4" className="h-16 md:h-20 w-auto object-contain" />
+              <img src="/client4.png" alt="Client 4" className="h-24 md:h-32 w-auto object-contain max-w-[200px] md:max-w-[250px]" />
             </div>
           </div>
         </section>
