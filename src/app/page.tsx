@@ -132,19 +132,19 @@ export default function LandingPage() {
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client1.png" alt="Client 1" className="h-10 md:h-12 w-auto object-contain" />
+              <img src="/client1.png" alt="Client 1" className="h-16 md:h-20 w-auto object-contain" />
             </div>
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client2.png" alt="Client 2" className="h-10 md:h-12 w-auto object-contain" />
+              <img src="/client2.png" alt="Client 2" className="h-16 md:h-20 w-auto object-contain" />
             </div>
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client3.png" alt="Client 3" className="h-10 md:h-12 w-auto object-contain" />
+              <img src="/client3.png" alt="Client 3" className="h-16 md:h-20 w-auto object-contain" />
             </div>
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client4.png" alt="Client 4" className="h-10 md:h-12 w-auto object-contain" />
+              <img src="/client4.png" alt="Client 4" className="h-16 md:h-20 w-auto object-contain" />
             </div>
           </div>
         </section>
