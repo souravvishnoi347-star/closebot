@@ -134,19 +134,19 @@ export default function PricingPage() {
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-75">
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client1.png" alt="Client 1" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="/client1.png" alt="Client 1" className="h-10 md:h-12 w-auto object-contain" />
             </div>
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client2.png" alt="Client 2" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="/client2.png" alt="Client 2" className="h-10 md:h-12 w-auto object-contain" />
             </div>
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client3.png" alt="Client 3" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="/client3.png" alt="Client 3" className="h-10 md:h-12 w-auto object-contain" />
             </div>
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client4.png" alt="Client 4" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="/client4.png" alt="Client 4" className="h-10 md:h-12 w-auto object-contain" />
             </div>
           </div>
         </div>

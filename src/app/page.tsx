@@ -132,19 +132,19 @@ export default function LandingPage() {
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client1.png" alt="Client 1" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="/client1.png" alt="Client 1" className="h-10 md:h-12 w-auto object-contain" />
             </div>
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client2.png" alt="Client 2" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="/client2.png" alt="Client 2" className="h-10 md:h-12 w-auto object-contain" />
             </div>
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client3.png" alt="Client 3" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="/client3.png" alt="Client 3" className="h-10 md:h-12 w-auto object-contain" />
             </div>
             <div className="hover:opacity-80 transition-opacity cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/client4.png" alt="Client 4" className="h-10 md:h-12 w-auto object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all" />
+              <img src="/client4.png" alt="Client 4" className="h-10 md:h-12 w-auto object-contain" />
             </div>
           </div>
         </section>
@@ -166,7 +166,7 @@ export default function LandingPage() {
                 >
                   <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center mb-6 text-xl border border-slate-100 shadow-sm">📱</div>
                   <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">Your WhatsApp inbox is a graveyard of expensive Meta leads</h3>
-                  <p className="text-slate-500 mb-8 font-medium">You pay Zuckerberg for leads, but WhatsApp has no lead scoring or ROI tracking. It's just names and timestamps — and hot leads are quietly dying there.</p>
+                  <p className="text-slate-500 mb-8 font-medium">You pay Mark Zuckerberg for leads, but WhatsApp has no lead scoring or ROI tracking. It's just names and timestamps — and hot leads are quietly dying there.</p>
                   <ul className="space-y-4">
                     <li className="flex gap-3 text-sm text-slate-600 font-medium italic"><span className="text-blue-600 font-bold not-italic">"</span> Inquiries that get a reply 8 hours too late</li>
                     <li className="flex gap-3 text-sm text-slate-600 font-medium italic"><span className="text-blue-600 font-bold not-italic">"</span> High-ticket clients buried under casual chats</li>
